@@ -2,17 +2,26 @@ module.exports = function(app)
 {
 
     app.get('/api', (req, res) => {
-      res.send('App works');
+        res.send('App works');
     });
     app.get("/api/test", findAllMessages);
     app.post("/api/test", createMessage);
     app.delete("/api/test/:id", deleteMessage);
 
 
-  let connectionString = 'mongodb://admin:admin@ds129144.mlab.com:29144/heroku_twd21hmz';
+    let connectionString = 'mongodb://localhost/test'; // for local
 
-  let mongoose = require("mongoose");
-    mongoose.connect(connectionString);
+    if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
+        let username = process.env.MLAB_USERNAME_WEBDEV; // get from environment
+        let password = process.env.MLAB_PASSWORD_WEBDEV;
+        connectionString = 'mongodb://' + username + ':' + password;
+        connectionString += '@ds129144.mlab.com:29144/heroku_twd21hmz'; // use yours
+    }
+
+    let mongoose = require("mongoose");
+    mongoose.connect(connectionString, {
+        useMongoClient: true
+    });
 
     let TestSchema = mongoose.Schema({
         message: String
