@@ -8,7 +8,7 @@ I'm Dishant Kapadiya, a graduate student at Northeastern University. This repo i
 
 
 ## Assignments:
-* ### [Assignment 1](https://github.com/dishantkapadiya2694/webdev-Kapadiya-Dishant/tree/Assignment-1)
+* ### [Assignment 1](https://github.com/dishantkapadiya2694/webdev-Kapadiya-Dishant/tree/assignment1)
 This assignment is consists of Environment setup. A small project is given by Professor and students need to configure that project to run on [Heroku](https://www.heroku.com). It also includes setting up [mLab](https://www.mlab.com) for running MongoDB with Heroku.
 
 ## Project:
