@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+input.form-control {
+    margin-bottom: 5px;
+}
+
+body.dk-top-padding {
+    padding-top: 36px;
+}
