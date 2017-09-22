@@ -6,3 +6,15 @@ input.form-control {
 body.dk-top-padding {
     padding-top: 36px;
 }
+
+.dk-fixed-top-navbar-padding {
+    padding-top: 70px;
+}
+
+.dk-fixed-bottom-navbar-padding {
+    padding-bottom: 70px;
+}
+
+.square {
+    border-radius: 0;
+}

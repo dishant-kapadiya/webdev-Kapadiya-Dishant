@@ -11,7 +11,7 @@
         "assets",
         "favicon.ico"
       ],
-      "index": "index.html",
+      "index": "assets/index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
       "test": "test.ts",
@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "assets/css/style.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
