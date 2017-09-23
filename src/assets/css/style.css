@@ -15,6 +15,13 @@ body.dk-top-padding {
     padding-bottom: 70px;
 }
 
+.v-align {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
 .square {
     border-radius: 0;
 }
