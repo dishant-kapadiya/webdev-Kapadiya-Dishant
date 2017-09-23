@@ -2,19 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../vendors/bootstrap/dist/css/bootstrap.min.css"/>.
-    <title>Title</title>
+    <link rel="stylesheet" href="../../vendors/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <title>Website-List</title>
 </head>
 <body>
-<div class="text">
-    <h1>Website List</h1>
+<nav class="navbar navbar-fixed-top bg-primary">
+    <div class="container-fluid">
+        <a class="bg-primary navbar-brand" href="../user/profile.html">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <b>Website</b>
+        </a>
+        <a class="bg-primary pull-right navbar-brand" href="website-new.html">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </div>
+</nav>
+<div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
     <ul class="list-group">
-        <li class="list-group-item active"> Name </li>
-        <li class="list-group-item"> Wikipedia
-            <a href="website-list.html"><span class="pull-right glyphicon glyphicon-cog"></span></a></li>
-        <li class="list-group-item"> CNet </li>
-        <li class="list-group-item"> Facebook </li>
+        <li class="list-group-item text-primary dk-borderless">
+            <div class="container-fluid row">
+                <a href="../page/page-list.html" class="col-xs-11"> Address Book App </a>
+                <a href="website-edit.html" class="col-xs-1">
+                    <span class="pull-right glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+        </li>
+        <li class="list-group-item text-primary dk-borderless">
+            <div class="container-fluid row">
+                <a href="../page/page-list.html" class="col-xs-11"> Blogger </a>
+                <a href="website-edit.html" class="col-xs-1">
+                    <span class="pull-right glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+        </li>
+        <li class="list-group-item text-primary dk-borderless">
+            <div class="container-fluid row">
+                <a href="../page/page-list.html" class="col-xs-11"> Blogging App </a>
+                <a href="website-edit.html" class="col-xs-1">
+                    <span class="pull-right glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+        </li>
+        <li class="list-group-item text-primary dk-borderless">
+            <div class="container-fluid row">
+                <a href="../page/page-list.html" class="col-xs-11"> Script Testing App </a>
+                <a href="website-edit.html" class="col-xs-1">
+                    <span class="pull-right glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+        </li>
     </ul>
 </div>
+<nav class="navbar navbar-fixed-bottom square bg-primary">
+    <div class="container-fluid">
+        <a href="profile.html">
+            <span class="navbar-brand glyphicon glyphicon-user pull-right bg-primary"></span>
+        </a>
+    </div>
+</nav>
 </body>
 </html>
