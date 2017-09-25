@@ -3,6 +3,15 @@
     margin-bottom: 10px;
 }
 
+.dk-no-padding {
+    padding: 0;
+}
+
+.dk-no-side-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 body.dk-top-padding {
     padding-top: 36px;
 }
