@@ -9,8 +9,8 @@
 <body>
 <nav class="navbar navbar-default navbar-fixed-top bg-secondary">
     <div class="container-fluid">
-        <a class="bg-secondary navbar-brand" href="../user/profile.html">
-            <span class="glyphicon glyphicon-chevron-left"></span>
+        <a class="bg-secondary navbar-brand" href="widget-list.html">
+            <span class="glyphicon glyphicon-remove"></span>
         </a>
         <b class="navbar-brand"> Edit Widget </b>
         <a class="bg-secondary pull-right navbar-brand" href="widget-list.html">
@@ -25,8 +25,9 @@
         <label for="widget-text"> Text </label>
         <input class="form-control dk-lower-margin" id="widget-text" placeholder="Text"/>
         <label for="widget-url"> URL </label>
-        <input class = "form-control dk-lower-margin" id="widget-url" placeholder="http://www.location-to-image.com"/>
-        <label for="widget-size"> Width(in %) </label>
+        <input type="url" class = "form-control dk-lower-margin" id="widget-url"
+               placeholder="http://www.location-to-image.com"/>
+        <label for="widget-size"> Width </label>
         <div class="input-group dk-lower-margin">
             <input class = "form-control" type="number" id="widget-size" value=100 placeholder="100"
                    min="0" max="100"/>
@@ -34,7 +35,7 @@
         </div>
         <label for="widget-choose-file"> Upload </label>
         <input type="file" class="form-control btn btn-file dk-lower-margin" id="widget-choose-file">
-        <a href="widget-choose.html" class="btn btn-danger form-control">Delete</a>
+        <a href="widget-list.html" class="btn btn-danger form-control">Delete</a>
     </form>
 </div>
 <nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
