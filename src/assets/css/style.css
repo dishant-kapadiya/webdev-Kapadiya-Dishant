@@ -48,3 +48,17 @@ textarea.dk-fixed-width {
 .dk-square {
     border-radius: 0;
 }
+
+.dk-widget-toolbar {
+    color: #ffff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.75);
+    border-bottom-left-radius: 4px;
+    padding: 5px;
+}
+
+.dk-text-dark {
+    color: #000000;
+}

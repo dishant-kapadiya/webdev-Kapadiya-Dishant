@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Widget Edit</title>
+    <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
 </head>
 <body>
-
+<nav class="navbar navbar-default navbar-fixed-top bg-secondary">
+    <div class="container-fluid">
+        <a class="bg-secondary navbar-brand" href="widget-list.html">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+        <b class="navbar-brand"> Edit Widget </b>
+        <a class="bg-secondary pull-right navbar-brand" href="widget-list.html">
+            <span class="glyphicon glyphicon-ok"></span>
+        </a>
+    </div>
+</nav>
+<div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
+    <form class="form-group">
+        <label for="widget-name"> Name </label>
+        <input class="form-control dk-lower-margin" id="widget-name" placeholder="Name"/>
+        <label for="widget-text"> Text </label>
+        <input class="form-control dk-lower-margin" id="widget-text" placeholder="Text"/>
+        <label for="widget-size"> Size </label>
+        <input class = "form-control dk-lower-margin" type="number" id="widget-size" placeholder="0" min="0"
+               data-bind="value:replyNumber"/>
+        <a href="widget-list.html" class="btn btn-danger form-control">Delete</a>
+    </form>
+</div>
+<nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
+    <a href="../user/profile.html" class="navbar-brand pull-right">
+        <span class="glyphicon glyphicon-user"></span>
+    </a>
+</nav>
 </body>
 </html>
