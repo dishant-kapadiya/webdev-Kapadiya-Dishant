@@ -21,11 +21,11 @@ body.dk-top-padding {
 }
 
 .dk-fixed-top-navbar-padding {
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 .dk-fixed-bottom-navbar-padding {
-    padding-bottom: 70px;
+    padding-bottom: 50px;
 }
 
 .dk-no-margin {
@@ -61,4 +61,8 @@ textarea.dk-fixed-width {
 
 .dk-text-dark {
     color: #000000;
+}
+
+.dk-li-right-margin {
+    margin-right: -7px;
 }

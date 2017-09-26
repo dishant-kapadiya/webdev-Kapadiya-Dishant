@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
     <meta charset="UTF-8">
     <title>Page Edit</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -8,8 +11,9 @@
 </head>
 <body>
 <div class="container-fluid">
+    /*Top navigation bar*/
     <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid hidden-xs hidden-sm col-md-4">
+        <div class="hidden-xs hidden-sm col-md-4">
             <a href="../user/profile.html" class="navbar-brand bg-secondary">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
@@ -28,60 +32,66 @@
             </a>
         </div>
     </nav>
-    <div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding col-md-4 hidden-xs hidden-sm">
-        <ul class="list-group">
-            <li class="list-group-item text-primary dk-borderless">
-                <div class="container-fluid row">
-                    <a href="../widget/widget-list.html"> Blog Posts </a>
-                    <a href="page-edit.html">
-                        <span class="pull-right glyphicon glyphicon-cog"></span>
-                    </a>
-                </div>
-            </li>
-            <li class="list-group-item text-primary dk-borderless">
-                <div class="container-fluid row">
-                    <a href="../widget/widget-list.html"> Blog </a>
-                    <a href="page-edit.html">
-                        <span class="pull-right glyphicon glyphicon-cog"></span>
-                    </a>
-                </div>
-            </li>
-            <li class="list-group-item text-primary dk-borderless">
-                <div class="container-fluid row">
-                    <a href="../widget/widget-list.html"> Home </a>
-                    <a href="page-edit.html">
-                        <span class="pull-right glyphicon glyphicon-cog"></span>
-                    </a>
-                </div>
-            </li>
-            <li class="list-group-item text-primary dk-borderless">
-                <div class="container-fluid row">
-                    <a href="../widget/widget-list.html"> About </a>
-                    <a href="page-edit.html">
-                        <span class="pull-right glyphicon glyphicon-cog"></span>
-                    </a>
-                </div>
-            </li>
-            <li class="list-group-item text-primary dk-borderless">
-                <div class="container-fluid row">
-                    <a href="../widget/widget-list.html"> Contact Us </a>
-                    <a href="page-edit.html">
-                        <span class="pull-right glyphicon glyphicon-cog"></span>
-                    </a>
-                </div>
-            </li>
-        </ul>
+
+    /*Middle content*/
+    <div class="dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
+        <div class="col-md-4 hidden-xs hidden-sm">
+            <ul class="container-fluid list-group">
+                <li class="list-group-item text-primary dk-borderless">
+                    <div class="row dk-li-right-margin">
+                        <a href="../widget/widget-list.html"> Blog Posts </a>
+                        <a href="page-edit.html">
+                            <span class="pull-right glyphicon glyphicon-cog"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="list-group-item text-primary dk-borderless">
+                    <div class="row dk-li-right-margin">
+                        <a href="../widget/widget-list.html"> Blog </a>
+                        <a href="page-edit.html">
+                            <span class="pull-right glyphicon glyphicon-cog"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="list-group-item text-primary dk-borderless">
+                    <div class="row dk-li-right-margin">
+                        <a href="../widget/widget-list.html"> Home </a>
+                        <a href="page-edit.html">
+                            <span class="pull-right glyphicon glyphicon-cog"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="list-group-item text-primary dk-borderless">
+                    <div class="row dk-li-right-margin">
+                        <a href="../widget/widget-list.html"> About </a>
+                        <a href="page-edit.html">
+                            <span class="pull-right glyphicon glyphicon-cog"></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="list-group-item text-primary dk-borderless">
+                    <div class="row dk-li-right-margin">
+                        <a href="../widget/widget-list.html"> Contact Us </a>
+                        <a href="page-edit.html">
+                            <span class="pull-right glyphicon glyphicon-cog"></span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-8">
+            <form class="form-group row">
+                <label for="page-name"> Name </label>
+                <input class="form-control dk-lower-margin" id="page-name" value="Lorem Ipsum" placeholder="Page name">
+                <label for="page-desc"> Description </label>
+                <input class="form-control dk-fixed-width dk-lower-margin" id="page-desc" placeholder="Page title"
+                       value="Lorem ipsum dolor sit amet">
+                <a href="page-list.html" class="btn btn-block btn-danger bottom"> Delete </a>
+            </form>
+        </div>
     </div>
-    <div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding col-md-8">
-        <form class="form-group">
-            <label for="page-name"> Name </label>
-            <input class="form-control dk-lower-margin" id="page-name" value="Lorem Ipsum" placeholder="Page name">
-            <label for="page-desc"> Description </label>
-            <input class="form-control dk-fixed-width dk-lower-margin" id="page-desc" placeholder="Page title"
-                   value="Lorem ipsum dolor sit amet">
-            <a href="page-list.html" class="btn btn-block btn-danger bottom"> Delete </a>
-        </form>
-    </div>
+
     <nav class="navbar navbar-default navbar-fixed-bottom bg-secondary">
         <div class="container-fluid col-xs-1 col-xs-offset-11">
             <a href="../user/profile.html">
