@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Widget Edit</title>
+    <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../css/style.css" rel="stylesheet"/>
 </head>
-<body>
 
+<body>
+<nav class="navbar navbar-default navbar-fixed-top bg-secondary">
+    <div class="container-fluid">
+        <a class="bg-secondary navbar-brand" href="../user/profile.html">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <b class="navbar-brand"> Edit Widget </b>
+        <a class="bg-secondary pull-right navbar-brand" href="website-new.html">
+            <span class="glyphicon glyphicon-ok"></span>
+        </a>
+    </div>
+</nav>
+<div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
+    <form class="form-group">
+        <label for="widget-name"> Name </label>
+        <input class="form-control dk-lower-margin" id="widget-name" placeholder="Name"/>
+        <label for="widget-text"> Text </label>
+        <input class="form-control dk-lower-margin" id="widget-text" placeholder="Text"/>
+        <label for="widget-url"> URL </label>
+        <input class = "form-control dk-lower-margin" id="widget-url" placeholder="http://www.location-to-image.com"/>
+        <label for="widget-size"> Width(in %) </label>
+        <div class="input-group dk-lower-margin">
+            <input class = "form-control" type="number" id="widget-size" value=100 placeholder="100"
+                   min="0" max="100"/>
+            <span class="input-group-addon">%</span>
+        </div>
+        <a href="widget-choose.html" class="btn btn-danger form-control">Delete</a>
+    </form>
+</div>
+<nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
+    <a href="../user/profile.html" class="navbar-brand pull-right">
+        <span class="glyphicon glyphicon-user"></span>
+    </a>
+</nav>
 </body>
 </html>
