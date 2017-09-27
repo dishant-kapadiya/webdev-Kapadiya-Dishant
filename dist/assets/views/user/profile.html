@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for making website for mobile-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="../../css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top bg-primary row">
+    <div class="container-fluid">
+        <p class="dk-no-margin navbar-brand"><b>Profile</b></p>
+        <a class="navbar-brand pull-right" href="profile.html">
+            <span class="glyphicon glyphicon-ok bg-primary"></span>
+        </a>
+    </div>
+</nav>
+<div class="container-fluid dk-fixed-bottom-navbar-padding dk-fixed-top-navbar-padding">
+    <form class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control dk-lower-margin" id="username" placeholder="walice">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control dk-lower-margin" id="email" placeholder="alice.wonderland@unicorn.com">
+            <label for="first-name">First Name</label>
+            <input type="text" class="form-control dk-lower-margin" id="first-name" placeholder="Alice">
+            <label for="last-name">Last Name</label>
+            <input type="text" class="form-control dk-lower-margin" id="last-name" placeholder="Wonderland">
+    </form>
+    <a class="btn btn-primary btn-block"
+       href="../website/website-list.html">Websites</a>
+    <a class="btn btn-danger btn-block "
+       href="login.html" >Logout</a>
+</div>
+<nav class="navbar navbar-fixed-bottom square bg-primary">
+    <div class="container-fluid">
+        <a href="profile.html">
+            <span class="navbar-brand glyphicon glyphicon-user pull-right bg-primary"></span>
+        </a>
+    </div>
+</nav>
+</body>
+</html>
