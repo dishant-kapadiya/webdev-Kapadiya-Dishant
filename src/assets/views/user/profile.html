@@ -11,41 +11,24 @@
     <link href="../../css/style.css" rel="stylesheet"/>
 </head>
 <body>
-<nav class="navbar navbar-fixed-top bg-primary square nav">
+<nav class="navbar navbar-fixed-top bg-primary row">
     <div class="container-fluid">
         <p class="dk-no-margin navbar-brand"><b>Profile</b></p>
-        <a class="navbar-brand bg-primary pull-right" href="profile.html">
-            <span class="glyphicon glyphicon-ok"></span>
+        <a class="navbar-brand pull-right" href="profile.html">
+            <span class="glyphicon glyphicon-ok bg-primary"></span>
         </a>
     </div>
 </nav>
-<div class="container dk-fixed-bottom-navbar-padding dk-fixed-top-navbar-padding">
-    <form>
-        <div class="form-group">
+<div class="container-fluid dk-fixed-bottom-navbar-padding dk-fixed-top-navbar-padding">
+    <form class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="walice">
-        </div>
-    </form>
-
-    <form>
-        <div class="form-group">
+            <input type="text" class="form-control dk-lower-margin" id="username" placeholder="walice">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="alice.wonderland@unicorn.com">
-        </div>
-    </form>
-
-    <form>
-        <div class="form-group">
+            <input type="email" class="form-control dk-lower-margin" id="email" placeholder="alice.wonderland@unicorn.com">
             <label for="first-name">First Name</label>
-            <input type="text" class="form-control" id="first-name" placeholder="Alice">
-        </div>
-    </form>
-
-    <form>
-        <div class="form-group">
+            <input type="text" class="form-control dk-lower-margin" id="first-name" placeholder="Alice">
             <label for="last-name">Last Name</label>
-            <input type="text" class="form-control" id="last-name" placeholder="Wonderland">
-        </div>
+            <input type="text" class="form-control dk-lower-margin" id="last-name" placeholder="Wonderland">
     </form>
     <a class="btn btn-primary btn-block"
        href="../website/website-list.html">Websites</a>
