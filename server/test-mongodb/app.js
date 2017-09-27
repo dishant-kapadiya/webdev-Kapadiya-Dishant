@@ -9,7 +9,7 @@ module.exports = function(app)
     app.delete("/api/test/:id", deleteMessage);
 
 
-    let connectionString = 'mongodb://localhost/test'; // for local
+    let connectionString = 'mongodb://localhost:27017/test'; // for local
 
     if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
         let username = process.env.MLAB_USERNAME_WEBDEV; // get from environment

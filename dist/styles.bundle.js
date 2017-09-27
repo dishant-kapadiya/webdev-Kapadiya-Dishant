@@ -1,12 +1,12 @@
-webpackJsonp([2],{
+webpackJsonp(["styles"],{
 
-/***/ "../../../../../src/styles.css":
+/***/ "../../../../../src/assets/css/style.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../../../src/styles.css");
+var content = __webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../../../src/assets/css/style.css");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__("../../../../style-loader/addStyles.js")(content, {});
@@ -15,8 +15,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js??ref--9-1!../node_modules/postcss-loader/index.js??postcss!./styles.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js??ref--9-1!../node_modules/postcss-loader/index.js??postcss!./styles.css");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js??ref--8-1!../../../node_modules/postcss-loader/index.js??postcss!./style.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js??ref--8-1!../../../node_modules/postcss-loader/index.js??postcss!./style.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -27,7 +27,7 @@ if(false) {
 
 /***/ }),
 
-/***/ "../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../../../src/styles.css":
+/***/ "../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../../../src/assets/css/style.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n.dk-lower-margin {\n    margin-bottom: 10px;\n}\n\n.dk-no-padding {\n    padding: 0;\n}\n\n.dk-no-side-padding {\n    padding-left: 0;\n    padding-right: 0;\n}\n\nbody.dk-top-padding {\n    padding-top: 36px;\n}\n\n.dk-borderless {\n    border: 0;\n}\n\n.dk-fixed-top-navbar-padding {\n    padding-top: 70px;\n}\n\n.dk-fixed-bottom-navbar-padding {\n    padding-bottom: 70px;\n}\n\n.dk-no-margin {\n    margin: 0px;\n}\n\n.mycontent-left {\n    border-right: 1px dashed #333;\n}\n\n.mycontent-right {\n    border-left: 1px dashed #333;\n}\n\ntextarea.dk-fixed-width {\n    min-width: 100%;\n    max-width: 100%;\n}\n\n.dk-square {\n    border-radius: 0;\n}\n\n.dk-widget-toolbar {\n    color: #ffff;\n    position: absolute;\n    right: 0;\n    top: 0;\n    background: rgba(255, 255, 255, 0.75);\n    border-bottom-left-radius: 4px;\n    padding: 5px;\n}\n\n.dk-text-dark {\n    color: #000000;\n}\n\n.dk-li-right-margin {\n    margin-right: 11px;\n}", ""]);
 
 // exports
 
@@ -381,7 +381,7 @@ function updateLink(linkElement, obj) {
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("../../../../../src/styles.css");
+module.exports = __webpack_require__("../../../../../src/assets/css/style.css");
 
 
 /***/ })

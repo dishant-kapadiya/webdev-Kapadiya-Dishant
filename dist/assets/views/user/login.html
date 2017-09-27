@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta tags for making website for mobile-->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
-
-
-  <meta charset="UTF-8">
-  <title>User Login</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-
-  <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
-
-  <!--<link href="../css/style.css" rel="stylesheet"/>-->
+    <!-- Meta tags for making website for mobile-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
+    <meta charset="UTF-8">
+    <!-- STYLE sheet comes after all the libraries are loaded. Document style-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style.css"/>
+    <title>User Login</title>
 </head>
 
 
-<body>
-<div class="container">
-  <h1>Login</h1>
-  <input placeholder="username"
-         type="text"
-         class="form-control"/>
-  <input placeholder="password"
-         type="password"
-         class="form-control"/>
-  <a class="btn btn-primary btn-block" href="profile.html" >Login</a>
-  <a class="btn btn-success btn-block" href="register.html" >Register</a>
-
+<body class="dk-top-padding">
+<div class="login container">
+    <h1>Login</h1>
+    <form>
+        <input type="text" class="form-control dk-lower-margin" placeholder="username"/>
+        <input type="password" class="form-control dk-lower-margin" placeholder="password"/>
+        <a class="btn btn-primary btn-block" href="profile.html">Login</a>
+        <a class="btn btn-success btn-block" href="register.html">Register</a>
+    </form>
 </div>
 </body>
 </html>
