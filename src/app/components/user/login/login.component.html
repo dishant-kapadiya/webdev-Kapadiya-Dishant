@@ -3,7 +3,7 @@
   <form>
     <input type="text" class="form-control dk-lower-margin" placeholder="username"/>
     <input type="password" class="form-control dk-lower-margin" placeholder="password"/>
-    <a class="btn btn-primary btn-block" href="profile.html">Login</a>
-    <a class="btn btn-success btn-block" href="register.html">Register</a>
+    <a class="btn btn-primary btn-block" [routerLink]="['/user/:uid']">Login</a>
+    <a class="btn btn-success btn-block" [routerLink]="['/register']">Register</a>
   </form>
 </div>

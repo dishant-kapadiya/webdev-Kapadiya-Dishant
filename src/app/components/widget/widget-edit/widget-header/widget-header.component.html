@@ -17,11 +17,11 @@
       <label for="widget-size"> Size </label>
       <input class = "form-control dk-lower-margin" type="number" id="widget-size" placeholder="0" min="0"
              data-bind="value:replyNumber"/>
-      <a href="widget-list.html" class="btn btn-danger form-control">Delete</a>
+      <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="btn btn-danger form-control">Delete</a>
     </form>
   </div>
   <nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
-    <a href="../user/profile.html" class="navbar-brand pull-right">
+    <a [routerLink]="['/user/:uid']" class="navbar-brand pull-right">
       <span class="glyphicon glyphicon-user text-primary"></span>
     </a>
   </nav>

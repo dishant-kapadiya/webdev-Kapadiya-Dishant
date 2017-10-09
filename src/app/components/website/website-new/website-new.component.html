@@ -1,20 +1,20 @@
 <div class="container-fluid">
   <nav class="navbar navbar-fixed-top bg-primary">
     <div class="hidden-xs hidden-sm col-md-4 row">
-      <a href="../user/profile.html" class="navbar-brand">
+      <a [routerLink]="['/user/:uid']" class="navbar-brand">
         <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
       </a>
       <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b> Website </b></p>
-      <a href="website-new.html" class="navbar-brand pull-right">
+      <a [routerLink]="['/user/:uid/website/new']" class="navbar-brand pull-right">
         <span class="glyphicon glyphicon-plus bg-primary"></span>
       </a>
     </div>
     <div>
-      <a class="navbar-brand" href="website-list.html">
+      <a class="navbar-brand" [routerLink]="['/user/:uid/website']">
         <span class="glyphicon glyphicon-remove bg-primary"></span>
       </a>
       <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b> New Website </b></p>
-      <a class="navbar-brand pull-right" href="website-list.html">
+      <a class="navbar-brand pull-right" [routerLink]="['/user/:uid/website']">
         <span class="glyphicon glyphicon-ok bg-primary"></span>
       </a>
     </div>
@@ -24,32 +24,32 @@
       <ul class="list-group">
         <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
           <div class="row dk-li-right-margin">
-            <a href="../page/page-list.html"> Address Book App </a>
-            <a href="website-edit.html">
+            <a [routerLink]="['/user/:uid/website/:wid/page']"> Address Book App </a>
+            <a [routerLink]="['/user/:uid/website/:wid']">
               <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
           </div>
         </li>
         <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
           <div class="row dk-li-right-margin">
-            <a href="../page/page-list.html"> Blogger </a>
-            <a href="website-edit.html">
+            <a [routerLink]="['/user/:uid/website/:wid/page']"> Blogger </a>
+            <a [routerLink]="['/user/:uid/website/:wid']">
               <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
           </div>
         </li>
         <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
           <div class="row dk-li-right-margin">
-            <a href="../page/page-list.html"> Blogging App </a>
-            <a href="website-edit.html">
+            <a [routerLink]="['/user/:uid/website/:wid/page']"> Blogging App </a>
+            <a [routerLink]="['/user/:uid/website/:wid']">
               <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
           </div>
         </li>
         <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
           <div class="row dk-li-right-margin">
-            <a href="../page/page-list.html"> Script Testing App </a>
-            <a href="website-edit.html">
+            <a [routerLink]="['/user/:uid/website/:wid/page']"> Script Testing App </a>
+            <a [routerLink]="['/user/:uid/website/:wid']">
               <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
           </div>
@@ -67,7 +67,7 @@
     </div>
   </div>
   <nav class="navbar navbar-fixed-bottom bg-primary">
-    <a href="../user/profile.html">
+    <a [routerLink]="['/user/:uid']">
       <span class="navbar-brand pull-right bg-primary glyphicon glyphicon-user"></span>
     </a>
   </nav>

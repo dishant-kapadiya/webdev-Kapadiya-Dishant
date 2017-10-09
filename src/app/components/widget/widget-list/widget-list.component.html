@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default navbar-fixed-top bg-secondary">
-  <a class="bg-secondary navbar-brand" href="../page/page-list.html">
+  <a class="bg-secondary navbar-brand" [routerLink]="['/user/:uid/website/:wid/page']">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
   <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b> Widgets </b></p>
-  <a class="bg-secondary pull-right navbar-brand" href="widget-choose.html">
+  <a class="bg-secondary pull-right navbar-brand" [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']">
     <span class="glyphicon glyphicon-plus"></span>
   </a>
 </nav>
@@ -98,13 +98,13 @@
   </div>
 </div>
 <nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
-  <a href="#" class="navbar-brand">
+  <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="navbar-brand">
     <span class="glyphicon glyphicon-play"></span>
   </a>
-  <a href="#" class="navbar-brand">
+  <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="navbar-brand">
     <span class="glyphicon glyphicon-eye-open"></span>
   </a>
-  <a href="../user/profile.html" class="navbar-brand pull-right">
+  <a [routerLink]="['/user/:uid']" class="navbar-brand pull-right">
     <span class="glyphicon glyphicon-user text-primary"></span>
   </a>
 </nav>

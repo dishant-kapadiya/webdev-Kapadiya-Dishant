@@ -2,7 +2,7 @@
 <nav class="navbar navbar-fixed-top bg-primary">
   <div class="col-xs-12">
     <p class="dk-no-margin navbar-brand"><b>Profile</b></p>
-    <a class="navbar-brand pull-right" href="profile.html">
+    <a class="navbar-brand pull-right" [routerLink]="['/user/:uid']">
       <span class="glyphicon glyphicon-ok bg-primary"></span>
     </a>
   </div>
@@ -19,13 +19,13 @@
     <input type="text" class="form-control dk-lower-margin" id="last-name" placeholder="Wonderland">
   </form>
   <a class="btn btn-primary btn-block"
-     href="../website/website-list.html">Websites</a>
+     [routerLink]="['/user/:uid/website']">Websites</a>
   <a class="btn btn-danger btn-block "
-     href="login.html" >Logout</a>
+     [routerLink]="['/login']">Logout</a>
 </div>
 <nav class="navbar navbar-fixed-bottom square bg-primary">
   <div class="container-fluid">
-    <a href="profile.html">
+    <a [routerLink]="['/user/:uid']">
       <span class="navbar-brand glyphicon glyphicon-user pull-right bg-primary"></span>
     </a>
   </div>

@@ -1,20 +1,20 @@
 <div class="container-fluid">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="hidden-xs hidden-sm col-md-4 row">
-      <a href="../website/website-list.html" class="navbar-brand bg-secondary">
+      <a [routerLink]="['/user/:uid/website']" class="navbar-brand bg-secondary">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
       <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b>Pages</b></p>
-      <a href="page-new.html" class="navbar-brand bg-secondary pull-right">
+      <a [routerLink]="['/user/:uid/website/:wid/page/new']" class="navbar-brand bg-secondary pull-right">
         <span class="glyphicon glyphicon-plus"></span>
       </a>
     </div>
     <div>
-      <a class="navbar-brand" href="page-list.html">
+      <a class="navbar-brand" [routerLink]="['/user/:uid/website/:wid/page']">
         <span class="glyphicon glyphicon-remove bg-secondary"></span>
       </a>
       <p class="navbar-brand text-center dk-no-margin"><b>New Page</b></p>
-      <a class="navbar-brand pull-right" href="page-list.html">
+      <a class="navbar-brand pull-right" [routerLink]="['/user/:uid/website/:wid/page']">
         <span class="glyphicon glyphicon-ok bg-secondary text-right"></span>
       </a>
     </div>
@@ -25,40 +25,40 @@
       <ul class="list-group">
         <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
           <div class="row dk-li-right-margin">
-            <a href="../widget/widget-list.html"> Blog Posts </a>
-            <a href="page-edit.html">
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']"> Blog Posts </a>
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
               <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
           </div>
         </li>
         <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
           <div class="row dk-li-right-margin">
-            <a href="../widget/widget-list.html"> Blog </a>
-            <a href="page-edit.html">
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']"> Blog </a>
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
               <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
           </div>
         </li>
         <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
           <div class="row dk-li-right-margin">
-            <a href="../widget/widget-list.html"> Home </a>
-            <a href="page-edit.html">
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']"> Home </a>
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
               <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
           </div>
         </li>
         <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
           <div class="row dk-li-right-margin">
-            <a href="../widget/widget-list.html"> About </a>
-            <a href="page-edit.html">
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']"> About </a>
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
               <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
           </div>
         </li>
         <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
           <div class="row dk-li-right-margin">
-            <a href="../widget/widget-list.html"> Contact Us </a>
-            <a href="page-edit.html">
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']"> Contact Us </a>
+            <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
               <span class="pull-right glyphicon glyphicon-cog"></span>
             </a>
           </div>
@@ -78,7 +78,7 @@
 
   <nav class="navbar navbar-default navbar-fixed-bottom bg-secondary col-xs-12">
     <div class="container-fluid col-xs-1 col-xs-offset-11">
-      <a href="../user/profile.html" class="navbar-brand pull-right">
+      <a [routerLink]="['/user/:uid']" class="navbar-brand pull-right">
         <span class="text-primary glyphicon glyphicon-user"></span>
       </a>
     </div>
