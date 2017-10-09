@@ -17,12 +17,12 @@ export class UserService {
         {_id: '456', username: 'jannunzi', password: 'jannunzi', firstName: 'Jose', lastName: 'Annunzi'}
     ];
     api = {
-        'createUser'            : this.createUser,
-        'findUserById'          : this.findUserById,
-        'findUserByUsername'    : this.findUserByUsername,
-        'findUserByCredentials' : this.findUserByCredentials,
-        'updateUser'            : this.updateUser,
-        'deleteUser'            : this.deleteUser
+        'createUser': this.createUser,
+        'findUserById': this.findUserById,
+        'findUserByUsername': this.findUserByUsername,
+        'findUserByCredentials': this.findUserByCredentials,
+        'updateUser': this.updateUser,
+        'deleteUser': this.deleteUser
     };
 
     createUser(user: any) {
@@ -65,7 +65,7 @@ export class UserService {
     }
 
     deleteUser(userId: string) {
-        for (let x = 0; x < this.users.length; x++){
+        for (let x = 0; x < this.users.length; x++) {
             if (this.users[x]._id === userId) {
                 delete this.users[x];
             }

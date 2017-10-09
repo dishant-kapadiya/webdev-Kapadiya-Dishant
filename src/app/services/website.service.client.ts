@@ -22,11 +22,11 @@ export class WebsiteService {
 
 
     api = {
-        'createWebsite': this.createWebsite,
+        'createWebsite':      this.createWebsite,
         'findWebsitesByUser': this.findWebsitesByUser,
-        'findWebsiteById': this.findWebsiteById,
-        'updateWebsite': this.updateWebsite,
-        'deleteWebsite': this.deleteWebsite
+        'findWebsiteById':    this.findWebsiteById,
+        'updateWebsite':      this.updateWebsite,
+        'deleteWebsite':      this.deleteWebsite
     };
 
 
@@ -38,13 +38,13 @@ export class WebsiteService {
     }
 
     findWebsitesByUser(userId: string) {
+        const list = [];
         for (let x = 0; x < this.websites.length; x++) {
-            const list = [];
             if (this.websites[x].developerId === userId) {
                 list.push(this.websites[x]);
             }
-            return list;
         }
+        return list;
     }
 
     findWebsiteById(websiteId: string) {
