@@ -11,10 +11,34 @@ export class UserService {
     }
 
     users = [
-        {_id: '123', username: 'alice', password: 'alice', firstName: 'Alice', lastName: 'Wonder'},
-        {_id: '234', username: 'bob', password: 'bob', firstName: 'Bob', lastName: 'Marley'},
-        {_id: '345', username: 'charly', password: 'charly', firstName: 'Charly', lastName: 'Garcia'},
-        {_id: '456', username: 'jannunzi', password: 'jannunzi', firstName: 'Jose', lastName: 'Annunzi'}
+        {
+            _id: '123',
+            username: 'alice',
+            password: 'alice',
+            firstName: 'Alice',
+            lastName: 'Wonder'
+        },
+        {
+            _id: '234',
+            username: 'bob',
+            password: 'bob',
+            firstName: 'Bob',
+            lastName: 'Marley'
+        },
+        {
+            _id: '345',
+            username: 'charly',
+            password: 'charly',
+            firstName: 'Charly',
+            lastName: 'Garcia'
+        },
+        {
+            _id: '456',
+            username: 'jannunzi',
+            password: 'jannunzi',
+            firstName: 'Jose',
+            lastName: 'Annunzi'
+        }
     ];
     api = {
         'createUser': this.createUser,
@@ -26,9 +50,16 @@ export class UserService {
     };
 
     createUser(user: any) {
-        user._id = Math.random();
-        this.users.push(user);
+        let random;
+        while (this.isUnique(random)) {
+            random = Math.floor(Math.random() * 100000).toString();
+        }
+        user._id = this.users.push(user);
         return user;
+    }
+
+    private isUnique(userId) {
+        return this.users.filter(user => user._id === userId).length === 0;
     }
 
     findUserById(userId: string) {

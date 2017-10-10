@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     username: string;
     password: string;
     errorFlag: boolean;
-    errorMsg: 'Invalid username or password';
+    errorMsg = 'Invalid username or password';
 
     constructor(private router: Router, private serviceHandler: UserService) {
     }
@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
         const user = this.serviceHandler.findUserByCredentials(this.username, this.password);
         if (user) {
             this.errorFlag = false;
-            const uid = user._id;
-            this.router.navigate(['user', uid]);
+            this.router.navigate(['user', user._id]);
         } else {
             this.errorFlag = true;
         }

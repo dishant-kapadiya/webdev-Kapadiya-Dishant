@@ -1,9 +1,12 @@
 <div class="container">
-  <h1>Register</h1>
-  <input placeholder="username" type="text" class="form-control dk-lower-margin"/>
-  <input placeholder="password" type="password" class="form-control dk-lower-margin"/>
-  <input placeholder="verify password" type="password" class="form-control dk-lower-margin"/>
-  <a class="btn btn-primary btn-block" [routerLink]="['/register']">Register</a>
-  <a class="btn btn-danger btn-block" [routerLink]="['/login']">Cancel</a>
-
+    <h1>Register</h1>
+    <form #f="ngForm">
+        <input name="username" id="username" placeholder="username" type="text" class="form-control dk-lower-margin"
+               ngModel #username="ngModel"/>
+        <input name="password" id="password" placeholder="password" type="password" ngModel #password="ngModel"
+               class="form-control dk-lower-margin"/>
+        <input placeholder="verify password" type="password" class="form-control dk-lower-margin"/>
+        <a class="btn btn-primary btn-block" (click)="register()">Register</a>
+        <a class="btn btn-danger btn-block" [routerLink]="['/login']">Cancel</a>
+    </form>
 </div>
