@@ -1,9 +1,19 @@
 <div class="login container">
-  <h1>Login</h1>
-  <form>
-    <input type="text" class="form-control dk-lower-margin" placeholder="username"/>
-    <input type="password" class="form-control dk-lower-margin" placeholder="password"/>
-    <a class="btn btn-primary btn-block" [routerLink]="['/user/:uid']">Login</a>
-    <a class="btn btn-success btn-block" [routerLink]="['/register']">Register</a>
-  </form>
+    <div *ngIf="errorFlag" class="alert alert-danger">{{errorMsg}}</div>
+    <h1>Login</h1>
+    <form (ngSubmit)="login()" #f="ngForm">
+        <input type="text" class="form-control dk-lower-margin" placeholder="username" name="username" ngModel required
+               #username="ngModel"/>
+        <span class="help-block" *ngIf="!username.valid && username.touched">
+            Please enter username!
+        </span>
+        <input type="password" class="form-control dk-lower-margin" placeholder="password" name="password" ngModel
+               required  #username="ngModel"/>
+        <span class="help-block" *ngIf="!username.valid && username.touched">
+            Please enter password!
+        </span>
+        <button class="btn btn-primary btn-block" type="submit"
+        [disabled]="!f.valid">Login</button>
+        <a class="btn btn-success btn-block" [routerLink]="['/register']">Register</a>
+    </form>
 </div>
