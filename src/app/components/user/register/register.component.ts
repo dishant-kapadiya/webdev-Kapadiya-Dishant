@@ -20,11 +20,9 @@ export class RegisterComponent implements OnInit {
 
     register() {
         let user = {};
-        console.log(this.registerForm.value.username);
         user['username'] = this.registerForm.value.username;
         user['password'] = this.registerForm.value.password;
         user = this.serviceHandler.createUser(user);
-        console.log(user);
         this.router.navigate(['user', user['_id']]);
     }
 }

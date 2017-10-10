@@ -50,17 +50,15 @@ export class UserService {
     };
 
     createUser(user: any) {
-        let random;
-        while (this.isUnique(random)) {
+        let random = Math.floor(Math.random() * 100000).toString();
+        while (this.findUserById(random)) {
             random = Math.floor(Math.random() * 100000).toString();
         }
-        user._id = this.users.push(user);
+        user._id = random;
+        this.users.push(user);
         return user;
     }
 
-    private isUnique(userId) {
-        return this.users.filter(user => user._id === userId).length === 0;
-    }
 
     findUserById(userId: string) {
         for (let x = 0; x < this.users.length; x++) {
