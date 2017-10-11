@@ -1,74 +1,53 @@
 <div class="container-fluid">
-  <nav class="navbar navbar-fixed-top bg-primary">
-    <div class="hidden-xs hidden-sm col-md-4 row">
-      <a [routerLink]="['/user/:uid']" class="navbar-brand">
-        <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
-      </a>
-      <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b> Website </b></p>
-      <a [routerLink]="['/user/:uid/website/new']" class="navbar-brand pull-right">
-        <span class="glyphicon glyphicon-plus bg-primary"></span>
-      </a>
-    </div>
-    <div>
-      <a class="navbar-brand" [routerLink]="['/user/:uid/website']">
-        <span class="glyphicon glyphicon-remove bg-primary"></span>
-      </a>
-      <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b> New Website </b></p>
-      <a class="navbar-brand pull-right" [routerLink]="['/user/:uid/website']">
-        <span class="glyphicon glyphicon-ok bg-primary"></span>
-      </a>
-    </div>
-  </nav>
-  <div class="dk-fixed-bottom-navbar-padding dk-fixed-top-navbar-padding">
-    <div class="col-md-4 hidden-xs hidden-sm">
-      <ul class="list-group">
-        <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
-          <div class="row dk-li-right-margin">
-            <a [routerLink]="['/user/:uid/website/:wid/page']"> Address Book App </a>
-            <a [routerLink]="['/user/:uid/website/:wid']">
-              <span class="pull-right glyphicon glyphicon-cog"></span>
+    <nav class="navbar navbar-fixed-top bg-primary">
+        <div class="hidden-xs hidden-sm col-md-4 row">
+            <a class="navbar-brand" (click)="goBack()">
+                <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
             </a>
-          </div>
-        </li>
-        <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
-          <div class="row dk-li-right-margin">
-            <a [routerLink]="['/user/:uid/website/:wid/page']"> Blogger </a>
-            <a [routerLink]="['/user/:uid/website/:wid']">
-              <span class="pull-right glyphicon glyphicon-cog"></span>
+            <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b> Website </b></p>
+            <a class="navbar-brand pull-right">
+                <span class="glyphicon glyphicon-plus bg-primary"></span>
             </a>
-          </div>
-        </li>
-        <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
-          <div class="row dk-li-right-margin">
-            <a [routerLink]="['/user/:uid/website/:wid/page']"> Blogging App </a>
-            <a [routerLink]="['/user/:uid/website/:wid']">
-              <span class="pull-right glyphicon glyphicon-cog"></span>
+        </div>
+        <div>
+            <a class="navbar-brand visible-xs visible-sm" (click)="goBack()">
+                <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
             </a>
-          </div>
-        </li>
-        <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
-          <div class="row dk-li-right-margin">
-            <a [routerLink]="['/user/:uid/website/:wid/page']"> Script Testing App </a>
-            <a [routerLink]="['/user/:uid/website/:wid']">
-              <span class="pull-right glyphicon glyphicon-cog"></span>
+            <p class="navbar-brand text-center dk-no-margin"><b> New Website </b></p>
+            <a class="button navbar-brand pull-right" (click)="createWebsite()">
+                <span class="glyphicon glyphicon-ok bg-primary"></span>
             </a>
-          </div>
-        </li>
-      </ul>
+        </div>
+    </nav>
+    <div class="dk-fixed-bottom-navbar-padding dk-fixed-top-navbar-padding">
+        <div class="col-md-4 hidden-xs hidden-sm">
+            <ul class="list-group" *ngFor="let website of websites">
+                <li class="row list-group-item text-primary dk-borderless dk-li-right-margin">
+                    <div class="row dk-li-right-margin">
+                        <a [routerLink]="['/user', userId, 'website', website['_id'], 'page']">{{website['name']}}</a>
+                        <a [routerLink]="['/user', userId, 'website', website['_id']]">
+                            <span class="pull-right glyphicon glyphicon-cog"></span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <form class="form-group" #f="ngForm">
+                <label for="websitename"> Name </label>
+                <input class="form-control dk-lower-margin" id="websitename" name="websitename" ngModel
+                       #websitename="ngModel"
+                       placeholder="Name of the website">
+                <label for="websitedesc"> Description </label>
+                <textarea class="form-control dk-fixed-width dk-lower-margin" rows="3" name="websitedesc"
+                          id="websitedesc" placeholder="Some description about your website" ngModel
+                          #websitedesc="ngModel"></textarea>
+            </form>
+        </div>
     </div>
-    <div class="col-md-8">
-      <form class="form-group">
-        <label for="website-name"> Name </label>
-        <input class="form-control dk-lower-margin" id="website-name" placeholder="Name of the website">
-        <label for="website-desc"> Description </label>
-        <textarea class="form-control dk-fixed-width dk-lower-margin" rows="3" id="website-desc"
-                  placeholder="Some description about your website"></textarea>
-      </form>
-    </div>
-  </div>
-  <nav class="navbar navbar-fixed-bottom bg-primary">
-    <a [routerLink]="['/user/:uid']">
-      <span class="navbar-brand pull-right bg-primary glyphicon glyphicon-user"></span>
-    </a>
-  </nav>
+    <nav class="navbar navbar-fixed-bottom bg-primary">
+        <a [routerLink]="['/user/:uid']">
+            <span class="navbar-brand pull-right bg-primary glyphicon glyphicon-user"></span>
+        </a>
+    </nav>
 </div>

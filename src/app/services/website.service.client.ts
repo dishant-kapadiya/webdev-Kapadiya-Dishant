@@ -31,7 +31,11 @@ export class WebsiteService {
 
 
     createWebsite(userId: string, website: any) {
-        website._id = Math.random();
+        let random = Math.floor(Math.random() * 100000).toString();
+        while (this.findWebsiteById(random)) {
+            random = Math.floor(Math.random() * 100000).toString();
+        }
+        website._id = random;
         website.developerId = userId;
         this.websites.push(website);
         return website;

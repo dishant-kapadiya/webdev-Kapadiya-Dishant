@@ -16,12 +16,10 @@
                placeholder="alice.wonderland@unicorn.com">
         <label for="first-name">First Name</label>
         <input [(ngModel)]="user['firstName']" name="firstName" type="text" class="form-control dk-lower-margin"
-               id="first-name"
-               placeholder="Alice">
+               id="first-name" placeholder="Alice">
         <label for="last-name">Last Name</label>
         <input [(ngModel)]="user['lastName']" name="lastName" type="text" class="form-control dk-lower-margin"
-               id="last-name"
-               placeholder="Wonderland">
+               id="last-name" placeholder="Wonderland">
     </form>
     <a class="btn btn-primary btn-block"
        [routerLink]="['website']">Websites</a>

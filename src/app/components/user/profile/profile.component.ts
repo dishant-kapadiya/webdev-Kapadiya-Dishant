@@ -28,7 +28,6 @@ export class ProfileComponent implements OnInit {
             );
         this.user = this.serviceHandler.findUserById(this.userId);
         this.username = this.user['username'];
-        console.log(this.serviceHandler.users);
     }
 
     updateProfile() {
