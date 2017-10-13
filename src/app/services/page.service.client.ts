@@ -18,16 +18,20 @@ export class PageService {
 
 
     api = {
-        'createPage':          this.createPage,
+        'createPage': this.createPage,
         'findPageByWebsiteId': this.findPageByWebsiteId,
-        'findPageById':        this.findPageById,
-        'updatePage':          this.updatePage,
-        'deletePage':          this.deletePage
+        'findPageById': this.findPageById,
+        'updatePage': this.updatePage,
+        'deletePage': this.deletePage
     };
 
 
     createPage(websiteId: string, page: any) {
-        page._id = Math.random();
+        let random = Math.floor(Math.random() * 100000).toString();
+        while (this.findPageById(random)) {
+            random = Math.floor(Math.random() * 100000).toString();
+        }
+        page._id = random;
         page.websiteId = websiteId;
         this.pages.push(page);
         return page;
@@ -63,7 +67,7 @@ export class PageService {
     deletePage(pageId: string) {
         for (let x = 0; x < this.pages.length; x++) {
             if (this.pages[x]._id === pageId) {
-                delete this.pages[x];
+                this.pages.splice(x, 1);
             }
         }
     }

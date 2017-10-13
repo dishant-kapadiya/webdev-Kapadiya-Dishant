@@ -1,50 +1,29 @@
 <div class="container-fluid">
-  <nav class="navbar navbar-default navbar-fixed-top bg-secondary">
-    <a [routerLink]="['/user/:uid/website']" class="navbar-brand">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <p class="dk-no-margin dk-no-side-padding navbar-brand"><b>Pages</b></p>
-    <a [routerLink]="['/user/:uid/website/:wid/page/new']" class="navbar-brand pull-right">
-      <span class="glyphicon glyphicon-plus"></span>
-    </a>
-  </nav>
-  <div class="dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
-    <ul class="list-group">
-      <li class="list-group-item text-primary dk-borderless row">
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="col-xs-11"> Blog Posts </a>
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
-          <span class="pull-right glyphicon glyphicon-cog"></span>
+    <nav class="navbar navbar-default navbar-fixed-top bg-secondary">
+        <a [routerLink]="['/user', userId, 'website']" class="navbar-brand">
+            <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless row">
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="col-xs-11"> Blog </a>
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
-          <span class="pull-right glyphicon glyphicon-cog"></span>
+        <p class="dk-no-margin dk-no-side-padding navbar-brand"><b>Pages</b></p>
+        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', 'new']" class="navbar-brand pull-right">
+            <span class="glyphicon glyphicon-plus"></span>
         </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless row">
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="col-xs-11"> Home </a>
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
-          <span class="pull-right glyphicon glyphicon-cog"></span>
+    </nav>
+    <div class="dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
+        <ul class="list-group" *ngFor="let page of pages">
+            <li class="list-group-item text-primary dk-borderless row">
+                <a [routerLink]="['/user', userId, 'website', websiteId, 'page', page['_id'], 'widget']"
+                   class="col-xs-11">
+                    {{page['name']}}
+                </a>
+                <a [routerLink]="['/user', userId, 'website', websiteId, 'page', page['_id']]">
+                    <span class="pull-right glyphicon glyphicon-cog"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom bg-secondary">
+        <a [routerLink]="['/user', userId]" class="navbar-brand pull-right">
+            <span class="text-primary glyphicon glyphicon-user"></span>
         </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless row">
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="col-xs-11"> About </a>
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
-          <span class="pull-right glyphicon glyphicon-cog"></span>
-        </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless row">
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="col-xs-11"> Contact Us </a>
-        <a [routerLink]="['/user/:uid/website/:wid/page/:pid']">
-          <span class="pull-right glyphicon glyphicon-cog"></span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <nav class="navbar navbar-default navbar-fixed-bottom bg-secondary">
-    <a [routerLink]="['/user/:uid']" class="navbar-brand pull-right">
-      <span class="text-primary glyphicon glyphicon-user"></span>
-    </a>
-  </nav>
+    </nav>
 </div>
