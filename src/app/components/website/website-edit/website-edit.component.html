@@ -14,7 +14,7 @@
                 <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
             </a>
             <p class="navbar-brand text-center dk-no-margin"><b> Edit Website </b></p>
-            <a class="navbar-brand pull-right" (click)="updateWebiste()">
+            <a class="navbar-brand pull-right" (click)="updateWebsite()">
                 <span class="glyphicon glyphicon-ok bg-primary text-right"></span>
             </a>
         </div>
@@ -34,13 +34,14 @@
             </ul>
         </div>
         <div class="col-md-8">
-            <form class="form-group" #f="ngForm">
+            <form class="form-group">
                 <label for="websitename"> Name </label>
-                <input class="form-control dk-lower-margin" name="websitename" id="websitename" value="Lorem Ipsum"
-                       ngModel #websitename="ngModel" [(ngModel)]="website['name']">
+                <input class="form-control dk-lower-margin" name="websitename" id="websitename"
+                       placeholder="Lorem Ipsum"
+                       [(ngModel)]="websitename">
                 <label for="websitedesc"> Description </label>
                 <textarea class="form-control dk-fixed-width dk-lower-margin" rows="3" name="websitedesc"
-                          id="websitedesc" ngModel #websitedesc="ngModel" [(ngModel)]="website['description']"
+                          id="websitedesc" [(ngModel)]="websitedesc"
                           placeholder="Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et...."></textarea>
                 <a class="btn btn-block btn-danger bottom" (click)="deleteWebsite()"> Delete </a>
             </form>

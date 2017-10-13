@@ -23,4 +23,8 @@ export class WebsiteListComponent implements OnInit {
         this.websites = this.serviceHandler.findWebsitesByUser(this.userId);
     }
 
+    goBack() {
+        history.back();
+    }
+
 }

@@ -10,12 +10,12 @@ import {NgForm} from '@angular/forms';
 })
 export class WebsiteEditComponent implements OnInit {
 
-    @ViewChild('f') editForm: NgForm;
-
     userId: string;
     websiteId: string;
     website: any;
     websites = [];
+    websitename: string;
+    websitedesc: string;
 
     constructor(private router: Router, private activatedRoute: ActivatedRoute, private serviceHandler: WebsiteService) {
     }
@@ -27,17 +27,20 @@ export class WebsiteEditComponent implements OnInit {
         });
         this.websites = this.serviceHandler.findWebsitesByUser(this.userId);
         this.website = this.serviceHandler.findWebsiteById(this.websiteId);
+        this.websitename = this.website['name'];
+        this.websitedesc = this.website['description'];
     }
 
     goBack() {
         history.back();
     }
 
-    updateWebiste() {
+    updateWebsite() {
         // const website = this.serviceHandler.findWebsiteById(this.websiteId);
-        this.website.name = this.editForm.value.websitename;
-        this.website.description = this.editForm.value.websitedesc;
+        this.website.name = this.websitename;
+        this.website.description = this.websitedesc;
         this.serviceHandler.updateWebsite(this.websiteId, this.website);
+        this.router.navigate(['/user', this.userId, 'website']);
     }
 
     deleteWebsite() {
