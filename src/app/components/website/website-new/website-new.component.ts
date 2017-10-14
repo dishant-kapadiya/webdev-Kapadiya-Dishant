@@ -25,10 +25,6 @@ export class WebsiteNewComponent implements OnInit {
         this.websites = this.serviceHandler.findWebsitesByUser(this.userId);
     }
 
-    goBack() {
-        history.back();
-    }
-
     createWebsite() {
         const website = {};
         website['name'] = this.websiteForm.value.websitename;

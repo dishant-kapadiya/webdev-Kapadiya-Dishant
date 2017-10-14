@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <nav class="navbar navbar-fixed-top bg-primary">
         <div class="hidden-xs hidden-sm col-md-4 row">
-            <a class="navbar-brand" (click)="goBack()">
+            <a class="navbar-brand" [routerLink]="['/user', userId, 'website']">
                 <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
             </a>
             <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b> Website </b></p>
@@ -10,7 +10,7 @@
             </a>
         </div>
         <div>
-            <a class="navbar-brand visible-xs visible-sm" (click)="goBack()">
+            <a class="navbar-brand visible-xs visible-sm" [routerLink]="['/user', userId, 'website']">
                 <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
             </a>
             <p class="navbar-brand text-center dk-no-margin"><b> Edit Website </b></p>

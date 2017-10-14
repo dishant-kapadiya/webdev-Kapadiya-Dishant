@@ -31,10 +31,6 @@ export class WebsiteEditComponent implements OnInit {
         this.websitedesc = this.website['description'];
     }
 
-    goBack() {
-        history.back();
-    }
-
     updateWebsite() {
         // const website = this.serviceHandler.findWebsiteById(this.websiteId);
         this.website.name = this.websitename;

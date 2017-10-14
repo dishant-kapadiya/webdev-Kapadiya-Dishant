@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <nav class="navbar navbar-fixed-top bg-primary col-xs-12">
         <div class=" row">
-            <a class="navbar-brand" (click)="goBack()">
+            <a class="navbar-brand" [routerLink]="['/user', userId]">
                 <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
             </a>
             <p class="dk-no-margin dk-no-side-padding navbar-brand"><b>Website</b></p>
