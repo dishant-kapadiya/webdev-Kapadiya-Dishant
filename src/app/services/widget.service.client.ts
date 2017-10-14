@@ -35,7 +35,11 @@ export class WidgetService {
     };
 
     createWidget(pageId: string, widget: any) {
-        widget._id = Math.random();
+        let random = Math.floor(Math.random() * 100000).toString();
+        while (this.findWidgetById(random)) {
+            random = Math.floor(Math.random() * 100000).toString();
+        }
+        widget._id = random;
         widget.pageId = pageId;
         this.widgets.push(widget);
         return widget;
