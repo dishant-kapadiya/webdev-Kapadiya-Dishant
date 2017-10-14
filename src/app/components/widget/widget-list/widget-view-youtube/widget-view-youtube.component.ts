@@ -9,11 +9,12 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class WidgetViewYoutubeComponent implements OnInit {
 
     @Input() widget: any;
+    videoUrl: any;
 
     constructor(private sanitizer: DomSanitizer) {
     }
 
     ngOnInit() {
-        this.widget['url'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.widget['url']);
+        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.widget['url']);
     }
 }
