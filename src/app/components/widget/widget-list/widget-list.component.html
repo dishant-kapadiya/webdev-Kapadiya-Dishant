@@ -1,0 +1,70 @@
+<nav class="navbar navbar-default navbar-fixed-top bg-secondary">
+    <a class="bg-secondary navbar-brand" [routerLink]="['/user', userId, 'website', websiteId, 'page']">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b> Widgets </b></p>
+    <a class="bg-secondary pull-right navbar-brand"
+       [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget', 'new']">
+        <span class="glyphicon glyphicon-plus"></span>
+    </a>
+</nav>
+
+<div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding col-xs-12">
+    <div *ngFor="let widget of widgets">
+        <div [ngSwitch]="widget['widgetType']">
+            <div *ngSwitchCase="'HEADING'">
+                <div class="col-xs-12">
+                    <app-widget-view-heading [widget]="widget"></app-widget-view-heading>
+                    <div class="pull-right dk-widget-toolbar">
+                        <a [routerLink]="[widget['_id']]"
+                           class="custom-widget">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                        <a class="custom-widget">
+                            <span class="glyphicon glyphicon-menu-hamburger dk-text-dark dk-text-dark"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div *ngSwitchCase="'IMAGE'">
+                <div class="col-xs-12">
+                    <app-widget-view-image [widget]="widget"></app-widget-view-image>
+                    <div class="pull-right dk-widget-toolbar">
+                        <a [routerLink]="[widget['_id']]"
+                           class="custom-widget">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                        <a class="custom-widget">
+                            <span class="glyphicon glyphicon-menu-hamburger dk-text-dark dk-text-dark"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div *ngSwitchCase="'YOUTUBE'">
+                <div class="col-xs-12">
+                    <app-widget-view-youtube [widget]="widget"></app-widget-view-youtube>
+                    <div class="pull-right dk-widget-toolbar">
+                        <a [routerLink]="[widget['_id']]"
+                           class="custom-widget">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                        <a class="custom-widget">
+                            <span class="glyphicon glyphicon-menu-hamburger dk-text-dark dk-text-dark"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
+    <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="navbar-brand">
+        <span class="glyphicon glyphicon-play"></span>
+    </a>
+    <a [routerLink]="['/user/:uid/website/:wid/page/:pid/widget']" class="navbar-brand">
+        <span class="glyphicon glyphicon-eye-open"></span>
+    </a>
+    <a [routerLink]="['/user/:uid']" class="navbar-brand pull-right">
+        <span class="glyphicon glyphicon-user text-primary"></span>
+    </a>
+</nav>

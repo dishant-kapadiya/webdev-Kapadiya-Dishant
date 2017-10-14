@@ -1,0 +1,35 @@
+<nav class="navbar navbar-fixed-top bg-primary">
+    <div class="col-xs-12">
+        <p class="dk-no-margin navbar-brand"><b>Profile</b></p>
+        <a class="navbar-brand pull-right" [routerLink]="['/user', userId]" (click)="updateProfile()">
+            <span class="glyphicon glyphicon-ok bg-primary"></span>
+        </a>
+    </div>
+</nav>
+<div class="container-fluid dk-fixed-bottom-navbar-padding dk-fixed-top-navbar-padding">
+    <form class="form-group" #f="ngForm">
+        <label for="username">Username</label>
+        <input [(ngModel)]="username" name="username" type="text" class="form-control dk-lower-margin" id="username"
+               placeholder="Alice" disabled="true">
+        <label for="email">Email address</label>
+        <input [(ngModel)]="user['email']" name="email" type="email" class="form-control dk-lower-margin" id="email"
+               placeholder="alice.wonderland@unicorn.com">
+        <label for="first-name">First Name</label>
+        <input [(ngModel)]="user['firstName']" name="firstName" type="text" class="form-control dk-lower-margin"
+               id="first-name" placeholder="Alice">
+        <label for="last-name">Last Name</label>
+        <input [(ngModel)]="user['lastName']" name="lastName" type="text" class="form-control dk-lower-margin"
+               id="last-name" placeholder="Wonderland">
+    </form>
+    <a class="btn btn-primary btn-block"
+       [routerLink]="['website']">Websites</a>
+    <a class="btn btn-danger btn-block "
+       [routerLink]="['/login']">Logout</a>
+</div>
+<nav class="navbar navbar-fixed-bottom square bg-primary">
+    <div class="container-fluid">
+        <a [routerLink]="['/user', userId]">
+            <span class="navbar-brand glyphicon glyphicon-user pull-right bg-primary"></span>
+        </a>
+    </div>
+</nav>

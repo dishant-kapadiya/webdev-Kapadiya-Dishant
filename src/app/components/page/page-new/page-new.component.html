@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="hidden-xs hidden-sm col-md-4 row">
+            <a [routerLink]="['/user', userId, 'website']" class="navbar-brand bg-secondary">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b>Pages</b></p>
+            <a [routerLink]="['/user', userId, 'website', websiteId, 'page', 'new']"
+               class="navbar-brand bg-secondary pull-right">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        <div>
+            <a class="navbar-brand visible-xs visible-sm"
+               [routerLink]="['/user', userId, 'website', websiteId, 'page']">
+                <span class="glyphicon glyphicon-chevron-left bg-secondary"></span>
+            </a>
+            <p class="navbar-brand text-center dk-no-margin"><b>New Page</b></p>
+            <a class="navbar-brand pull-right" (click)="createPage()">
+                <span class="glyphicon glyphicon-ok bg-secondary text-right"></span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="dk-fixed-bottom-navbar-padding dk-fixed-top-navbar-padding">
+        <div class="col-md-4 hidden-xs hidden-sm">
+            <ul class="list-group" *ngFor="let page of pages">
+                <li class="list-group-item text-primary dk-borderless dk-li-right-margin">
+                    <div class="row dk-li-right-margin">
+                        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', page['_id'], 'widget']">
+                        {{page['name']}}
+                        </a>
+                        <a [routerLink]="['/user', userId, 'website', websiteId, 'page', page['_id']]">
+                            <span class="pull-right glyphicon glyphicon-cog"></span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-8">
+            <form class="form-group" #f="ngForm">
+                <label for="pagename"> Name </label>
+                <input class="form-control dk-lower-margin" name="pagename" id="pagename" ngModel #pagename="ngModel"
+                       placeholder="Page Name">
+                <label for="pagedesc"> Description </label>
+                <input class="form-control dk-lower-margin" name="pagedesc" id="pagedesc" ngModel #pagedesc="ngModel"
+                       placeholder="Page Description">
+            </form>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom bg-secondary col-xs-12">
+        <div class="container-fluid col-xs-1 col-xs-offset-11">
+            <a [routerLink]="['/user/:uid']" class="navbar-brand pull-right">
+                <span class="text-primary glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </nav>
+</div>
