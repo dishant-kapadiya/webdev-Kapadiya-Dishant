@@ -21,7 +21,12 @@ This assignment consists of building the User-Interface of a Website building ap
 semester. Student are given wireframe of UI and are suppose to build those screens. In this project I've used Bootstrap
 v3 for styling. You can see this assignment on Heroku.
 
+* ### [Assignment 3](https://github.com/dishantkapadiya2694/webdev-Kapadiya-Dishant/tree/assignment3)
+This assignment consists of building the UI from last assignment using Angular 4 component. Students are given 
+specifications of routes in assignment problem statement and are suppose to arrange code according components. In this 
+project I've used Bootstrap v3 for styling and Angular 4 for components. You can see this assignment on Heroku.
+
 
 ## Project:
-#### Coming Soon!😇😎
-Trailer releasing on Oct 4, 2017.
+#### Checkout wiki for project idea.
+##### POC coming soon😎

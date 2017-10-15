@@ -18,7 +18,7 @@
             <input class="form-control dk-lower-margin" id="widgettext" name="widgettext" placeholder="Text"
                    [(ngModel)]="widgettext"/>
             <label for="widgetsize"> Size </label>
-            <input class="form-control dk-lower-margin" type="number" id="widgetsize" name="widgetsize" placeholder="0"
+            <input class="form-control dk-lower-margin" type="number" id="widgetsize" name="widgetsize" placeholder="1"
                    min="1" max="6" data-bind="value:replyNumber" [(ngModel)]="widgetsize"/>
             <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" (click)="deleteWidget()"
                class="btn btn-danger form-control">Delete</a>
