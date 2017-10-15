@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top bg-secondary">
+        <a class="bg-secondary navbar-brand"
+           [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+        <b class="navbar-brand dk-no-side-padding dk-no-margin"> Edit Widget </b>
+        <a class="bg-secondary pull-right navbar-brand" (click)="updateWidget()">
+            <span class="glyphicon glyphicon-ok"></span>
+        </a>
+    </nav>
+    <div class="dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding col-xs-12">
+        <form class="form-group">
+            <label for="widgetname"> Name </label>
+            <input class="form-control dk-lower-margin" id="widgetname" name="widgetname" placeholder="Name"
+                   [(ngModel)]="widgetname"/>
+            <label for="widgettext"> Text </label>
+            <input class="form-control dk-lower-margin" id="widgettext" name="widgettext" placeholder="Text"
+                   [(ngModel)]="widgettext"/>
+            <label for="widgetsize"> Size </label>
+            <input class="form-control dk-lower-margin" type="number" id="widgetsize" name="widgetsize" placeholder="1"
+                   min="1" max="6" data-bind="value:replyNumber" [(ngModel)]="widgetsize"/>
+            <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" (click)="deleteWidget()"
+               class="btn btn-danger form-control">Delete</a>
+        </form>
+    </div>
+    <nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
+        <a [routerLink]="['/user', userId]" class="navbar-brand pull-right">
+            <span class="glyphicon glyphicon-user text-primary"></span>
+        </a>
+    </nav>
+</div>

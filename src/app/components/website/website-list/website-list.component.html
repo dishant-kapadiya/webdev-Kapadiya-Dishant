@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-fixed-top bg-primary col-xs-12">
+        <div class=" row">
+            <a class="navbar-brand" [routerLink]="['/user', userId]">
+                <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
+            </a>
+            <p class="dk-no-margin dk-no-side-padding navbar-brand"><b>Website</b></p>
+            <a [routerLink]="['new']" class="pull-right navbar-brand">
+                <span class="glyphicon glyphicon-plus bg-primary"></span>
+            </a>
+        </div>
+    </nav>
+    <div class="dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
+        <ul class="list-group" *ngFor="let website of websites">
+            <li class="list-group-item text-primary dk-borderless row">
+                <a [routerLink]="[website['_id'], 'page']" class="col-xs-11">{{website['name']}}</a>
+                <a [routerLink]="[website['_id']]">
+                    <span class="pull-right glyphicon glyphicon-cog"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-fixed-bottom square bg-primary">
+        <a [routerLink]="['/user', userId]">
+            <span class="navbar-brand glyphicon glyphicon-user pull-right bg-primary"></span>
+        </a>
+    </nav>
+</div>

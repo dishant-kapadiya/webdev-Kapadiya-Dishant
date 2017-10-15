@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-fixed-top bg-primary">
+        <div class="hidden-xs hidden-sm col-md-4 row">
+            <a class="navbar-brand" [routerLink]="['/user', userId, 'website']">
+                <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
+            </a>
+            <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b> Website </b></p>
+            <a [routerLink]="['/user', userId, 'website', 'new']" class="navbar-brand pull-right">
+                <span class="glyphicon glyphicon-plus bg-primary"></span>
+            </a>
+        </div>
+        <div>
+            <a class="navbar-brand visible-xs visible-sm" [routerLink]="['/user', userId, 'website']">
+                <span class="glyphicon glyphicon-chevron-left bg-primary"></span>
+            </a>
+            <p class="navbar-brand text-center dk-no-margin"><b> Edit Website </b></p>
+            <a class="navbar-brand pull-right" (click)="updateWebsite()">
+                <span class="glyphicon glyphicon-ok bg-primary text-right"></span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
+        <div class="col-md-4 hidden-xs hidden-sm">
+            <ul class="list-group" *ngFor="let website of websites">
+                <li class="row list-group-item text-primary dk-borderless dk-li-right-margin">
+                    <div class="row dk-li-right-margin">
+                        <a [routerLink]="['/user', userId, 'website', website['_id'], 'page']">{{website['name']}}</a>
+                        <a [routerLink]="['/user', userId, 'website', website['_id']]">
+                            <span class="pull-right glyphicon glyphicon-cog"></span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <form class="form-group">
+                <label for="websitename"> Name </label>
+                <input class="form-control dk-lower-margin" name="websitename" id="websitename"
+                       placeholder="Lorem Ipsum"
+                       [(ngModel)]="websitename">
+                <label for="websitedesc"> Description </label>
+                <textarea class="form-control dk-fixed-width dk-lower-margin" rows="3" name="websitedesc"
+                          id="websitedesc" [(ngModel)]="websitedesc"
+                          placeholder="Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et...."></textarea>
+                <a class="btn btn-block btn-danger bottom" (click)="deleteWebsite()"> Delete </a>
+            </form>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-fixed-bottom bg-primary">
+        <a [routerLink]="['/user', userId]">
+            <span class="navbar-brand pull-right bg-primary glyphicon glyphicon-user"></span>
+        </a>
+    </nav>
+</div>
