@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="hidden-xs hidden-sm col-md-4 row">
-            <a [routerLink]="['/user', userId, 'website']" class="navbar-brand bg-secondary">
+            <a [routerLink]="['/user', userId, 'website', websiteId, 'page']" class="navbar-brand bg-secondary">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
             <p class="navbar-brand text-center dk-no-margin dk-no-side-padding"><b>Pages</b></p>
@@ -50,9 +50,9 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom bg-secondary col-xs-12">
+    <nav class="navbar navbar-default navbar-fixed-bottom bg-secondary">
         <div class="container-fluid col-xs-1 col-xs-offset-11">
-            <a [routerLink]="['/user/:uid']" class="navbar-brand pull-right">
+            <a [routerLink]="['/user', userId]" class="navbar-brand pull-right">
                 <span class="text-primary glyphicon glyphicon-user"></span>
             </a>
         </div>

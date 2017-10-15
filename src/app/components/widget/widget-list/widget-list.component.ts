@@ -18,7 +18,7 @@ export class WidgetListComponent implements OnInit {
     }
 
     ngOnInit() {
-        this .activatedRouter.params.subscribe((params: any) => {
+        this.activatedRouter.params.subscribe((params: any) => {
             this.userId = params['uid'];
             this.websiteId = params['wid'];
             this.pageId = params['pid'];
