@@ -51,5 +51,6 @@ app.get('*', function (req, res) {
 
 
 server.listen( port , () => console.log('Running'));
+require("./assignment/app.js")(app);
 
 
