@@ -15,6 +15,8 @@ export class ProfileComponent implements OnInit {
     userId: string;
     user = {};
     username: string;
+    msgFlag: boolean;
+    message = '';
 
     constructor(private serviceHandler: UserService, private activatedRoute: ActivatedRoute) {
     }
@@ -26,14 +28,33 @@ export class ProfileComponent implements OnInit {
                     this.userId = params['uid'];
                 }
             );
-        this.user = this.serviceHandler.findUserById(this.userId);
-        this.username = this.user['username'];
+        this.serviceHandler.findUserById(this.userId)
+            .subscribe(
+                (data: any) => {
+                    this.user = data;
+                },
+                (error: any) => {
+                    console.log(error);
+                    this.msgFlag = true;
+                    this.message = 'User not found';
+                }
+            );
     }
 
     updateProfile() {
         this.user['email'] = this.profileForm.value.email;
         this.user['firstName'] = this.profileForm.value.firstName;
         this.user['lastName'] = this.profileForm.value.lastName;
-        this.serviceHandler.updateUser(this.userId, this.user);
+        this.serviceHandler.updateUser(this.userId, this.user)
+            .subscribe(
+                (data: any) => {
+                    this.msgFlag = true;
+                    this.message = 'Successfully updated user';
+                },
+                (error: any) => {
+                    this.msgFlag = true;
+                    this.message = 'Failure while updating user';
+                }
+            );
     }
 }

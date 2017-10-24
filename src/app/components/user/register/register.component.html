@@ -1,6 +1,7 @@
 <div class="container">
     <h1>Register</h1>
     <form #f="ngForm">
+        <div *ngIf="msgFlag" class="alert alert-danger">{{message}}</div>
         <input name="username" id="username" placeholder="username" type="text" class="form-control dk-lower-margin"
                ngModel #username="ngModel"/>
         <input name="password" id="password" placeholder="password" type="password" ngModel #password="ngModel"
