@@ -26,23 +26,53 @@ export class PageEditComponent implements OnInit {
             this.websiteId = params['wid'];
             this.pageId = params['pid'];
         });
-        this.pages = this.serviceHandler.findPageByWebsiteId(this.websiteId);
-        this.page = this.serviceHandler.findPageById(this.pageId);
-        this.pagename = this.page['name'];
-        this.pagedesc = this.page['description'];
+        this.serviceHandler.findPageByWebsiteId(this.websiteId)
+            .subscribe(
+                (data: any) => {
+                    this.pages = data;
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
+        this.serviceHandler.findPageById(this.pageId)
+            .subscribe(
+                (data: any) => {
+                    this.page = data;
+                    this.pagename = data.name;
+                    this.pagedesc = data.description;
+                },
+                (error: any) => {
+                    // TODO: Handle errors
+                }
+            );
     }
 
 
     updatePage() {
         this.page.name = this.pagename;
         this.page.description = this.pagedesc;
-        this.serviceHandler.updatePage(this.pageId, this.page);
-        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
+        this.serviceHandler.updatePage(this.pageId, this.page)
+            .subscribe(
+                (data: any) => {
+                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
+                },
+                (error: any) => {
+                    // TODO: Handle errors
+                }
+            );
     }
 
     deletePage() {
-        this.serviceHandler.deletePage(this.pageId);
-        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
+        this.serviceHandler.deletePage(this.pageId)
+            .subscribe(
+                (data: any) => {
+                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
+                },
+                (error: any) => {
+                    // TODO: Handle errors
+                }
+            );
     }
 
 }

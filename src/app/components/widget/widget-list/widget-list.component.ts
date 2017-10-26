@@ -23,6 +23,14 @@ export class WidgetListComponent implements OnInit {
             this.websiteId = params['wid'];
             this.pageId = params['pid'];
         });
-        this.widgets = this.serviceHandler.findWidgetsByPageId(this.pageId);
+        this.serviceHandler.findWidgetsByPageId(this.pageId)
+            .subscribe(
+                (data: any) => {
+                    this.widgets = data;
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
     }
 }

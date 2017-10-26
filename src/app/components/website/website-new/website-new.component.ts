@@ -22,14 +22,29 @@ export class WebsiteNewComponent implements OnInit {
         this.activatedRoute.params.subscribe((params: any) => {
             this.userId = params['uid'];
         });
-        this.websites = this.serviceHandler.findWebsitesByUser(this.userId);
+        this.serviceHandler.findWebsitesByUser(this.userId)
+            .subscribe(
+                (data: any) => {
+                    this.websites = data;
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
     }
 
     createWebsite() {
         const website = {};
         website['name'] = this.websiteForm.value.websitename;
         website['description'] = this.websiteForm.value.websitedesc;
-        this.serviceHandler.createWebsite(this.userId, website);
-        this.router.navigate(['/user', this.userId, 'website']);
+        this.serviceHandler.createWebsite(this.userId, website).
+            subscribe(
+            (data: any) => {
+                this.router.navigate(['/user', this.userId, 'website']);
+            },
+            (error: any) => {
+                // TODO: handle errors
+            }
+        );
     }
 }

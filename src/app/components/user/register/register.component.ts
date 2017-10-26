@@ -11,6 +11,8 @@ import {Router} from '@angular/router';
 export class RegisterComponent implements OnInit {
 
     @ViewChild('f') registerForm: NgForm;
+    msgFlag: boolean;
+    message = '';
 
     constructor(private serviceHandler: UserService, private router: Router) {
     }
@@ -19,10 +21,18 @@ export class RegisterComponent implements OnInit {
     }
 
     register() {
-        let user = {};
+        const user = {};
         user['username'] = this.registerForm.value.username;
         user['password'] = this.registerForm.value.password;
-        user = this.serviceHandler.createUser(user);
-        this.router.navigate(['user', user['_id']]);
+        this.serviceHandler.createUser(user)
+            .subscribe(
+                (data: any) => {
+                    this.router.navigate(['user', data['_id']]);
+                },
+                (error: any) => {
+                    this.msgFlag = true;
+                    this.message = 'Error while creating user';
+                }
+            );
     }
 }
