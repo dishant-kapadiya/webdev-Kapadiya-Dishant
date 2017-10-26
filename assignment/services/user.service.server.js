@@ -39,14 +39,10 @@ module.exports = function (app) {
 
     function createUser(req, res) {
         let random = Math.floor(Math.random() * 100000).toString();
-        // while (findUserById(random)) {
-        //     random = Math.floor(Math.random() * 100000).toString();
-        // }
-
         let user = req.body;
         user._id = random;
         users.push(user);
-        res.status(201);
+        res.statusCode = 201;
         res.send(user);
     }
 
@@ -63,7 +59,7 @@ module.exports = function (app) {
         let userName = req.username;
         for (let x = 0; x < users.length; x++) {
             if (users[x].username === userName) {
-                res.status(200);
+                res.statusCode = 200;
                 res.send(users[x]);
             }
         }
@@ -75,7 +71,7 @@ module.exports = function (app) {
         for (let x = 0; x < users.length; x++) {
             if (users[x].username === username &&
                 users[x].password === password) {
-                res.status(200);
+                res.statusCode = 200;
                 res.send(users[x]);
             }
         }
@@ -85,7 +81,7 @@ module.exports = function (app) {
         let userId = req.params.userId;
         for (let x = 0; x < users.length; x++) {
             if (users[x]._id === userId) {
-                res.status(200);
+                res.statusCode = 200;
                 res.send(users[x]);
             }
         }
@@ -101,7 +97,7 @@ module.exports = function (app) {
         for (let x = 0; x < users.length; x++) {
             if (users[x]._id === userId) {
                 users[x] = user;
-                res.status(200);
+                res.statusCode = 200;
                 res.send({
                     "message" : "updated successfully"
                 });
@@ -117,7 +113,7 @@ module.exports = function (app) {
         let userId = req.params.userId;
         for (let x = 0; x < users.length; x++) {
             if (users[x]._id === userId) {
-                res.status(200);
+                res.statusCode = 200;
                 res.send({
                     "message" : "deleted successfully"
                 });
