@@ -63,6 +63,10 @@ module.exports = function (app) {
                 res.send(users[x]);
             }
         }
+        res.status(404);
+        res.send({
+            "error" : "Not Found"
+        });
     }
 
     function findUserByCredentials(req, res) {
@@ -75,6 +79,10 @@ module.exports = function (app) {
                 res.send(users[x]);
             }
         }
+        res.status(404);
+        res.send({
+            "error" : "Not Found"
+        });
     }
 
     function findUserById(req, res) {

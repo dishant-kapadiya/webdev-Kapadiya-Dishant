@@ -29,11 +29,19 @@ export class WidgetImageComponent implements OnInit {
             this.pageId = params['pid'];
             this.widgetId = params['wgid'];
         });
-        this.widget = this.serviceHandler.findWidgetById(this.widgetId);
-        this.widgetname = this.widget['name'];
-        this.widgettext = this.widget['text'];
-        this.widgeturl = this.widget['url'];
-        this.widgetwidth = Number(this.widget['width'].slice(0, -1));
+        this.serviceHandler.findWidgetById(this.widgetId)
+            .subscribe(
+                (data: any) => {
+                    this.widget = data;
+                    this.widgetname = this.widget['name'];
+                    this.widgettext = this.widget['text'];
+                    this.widgeturl = this.widget['url'];
+                    this.widgetwidth = Number(this.widget['width'].slice(0, -1));
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
     }
 
     updateWidget() {
@@ -41,12 +49,26 @@ export class WidgetImageComponent implements OnInit {
         this.widget.text = this.widgettext;
         this.widget.width = this.widgetwidth + '%';
         this.widget.url = this.widgeturl;
-        this.serviceHandler.updateWidget(this.widgetId, this.widget);
-        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+        this.serviceHandler.updateWidget(this.widgetId, this.widget)
+            .subscribe(
+                (data: any) => {
+                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
     }
 
     deleteWidget() {
-        this.serviceHandler.deleteWidget(this.widgetId);
-        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+        this.serviceHandler.deleteWidget(this.widgetId)
+            .subscribe(
+                (data: any) => {
+                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
     }
 }
