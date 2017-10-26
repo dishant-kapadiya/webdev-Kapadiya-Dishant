@@ -1,4 +1,4 @@
-module.exports = function (app){
+module.exports = function (app) {
     let widgets = [
         {'_id': '123', 'widgetType': 'HEADING', 'pageId': '321', 'size': 2, 'text': 'GIZMODO'},
         {'_id': '234', 'widgetType': 'HEADING', 'pageId': '321', 'size': 4, 'text': 'Lorem ipsum'},
@@ -21,6 +21,8 @@ module.exports = function (app){
     app.get('/api/widget/:widgetId', findWidgetById);
     app.put('/api/widget/:widgetId', updateWidget);
     app.delete('/api/widget/:widgetId', deleteWidget);
+    app.put('/page/:pageId/widget?initial=index1&final=index2', reorderWidgets);
+
 
     function createWidget(req, res) {
         let pageId = req.params.pageId;
@@ -91,5 +93,23 @@ module.exports = function (app){
         res.send({
             "error": "website ID not found"
         });
+    }
+
+    function reorderWidgets(req, res) {
+        let index1 = req.params.index1;
+        let index2 = req.params.index2;
+        if(index2 > widgets.length){
+            res.status(400);
+            res.send({
+                "error" : "destination index out of bounds"
+            })
+        }
+        let widget = widgets[index1];
+        widgets.splice(index1, 1);
+        widgets.splice(index2, 0, widget);
+        res.status(200);
+        res.send({
+            "message" : "reordered widgets"
+        })
     }
 };
