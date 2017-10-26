@@ -48,8 +48,8 @@ module.exports = function (app) {
         }
         res.status(404);
         res.send({
-            "message": "website ID not found"
-        })
+            "error": "website ID not found"
+        });
     }
 
     function updateWebsite(req, res) {
@@ -66,7 +66,7 @@ module.exports = function (app) {
         }
         res.status(404);
         res.send({
-            "message": "website ID not found"
+            "error": "website ID not found"
         });
     }
 
@@ -83,7 +83,7 @@ module.exports = function (app) {
         }
         res.status(404);
         res.send({
-            "message": "website ID not found"
+            "error": "website ID not found"
         });
     }
 };
