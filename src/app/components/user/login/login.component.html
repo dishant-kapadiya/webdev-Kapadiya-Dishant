@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-app="HelloWorldDirective">
     <div *ngIf="errorFlag" class="alert alert-danger">{{errorMsg}}</div>
     <h1>Login</h1>
     <form (ngSubmit)="login()" #f="ngForm">

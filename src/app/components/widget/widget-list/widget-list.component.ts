@@ -13,6 +13,7 @@ export class WidgetListComponent implements OnInit {
     websiteId: string;
     pageId: string;
     widgets = [];
+    updated = true;
 
     constructor(private router: Router, private activatedRouter: ActivatedRoute, private serviceHandler: WidgetService) {
     }
@@ -29,6 +30,18 @@ export class WidgetListComponent implements OnInit {
                     this.widgets = data;
                 },
                 (error: any) => {
+                    // TODO: handle errors
+                }
+            );
+    }
+
+    sortWidgets(event: Object) {
+        this.serviceHandler.sortWidgets(this.pageId, this.widgets[event['initial']], event['initial'], event['final'])
+            .subscribe(
+                (data: any) => {
+                    this.updated = true;
+                },
+                (err: any) => {
                     // TODO: handle errors
                 }
             );

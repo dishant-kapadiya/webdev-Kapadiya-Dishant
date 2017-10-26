@@ -27,6 +27,7 @@ import {WidgetService} from './services/widget.service.client';
 import { WidgetViewHeadingComponent } from './components/widget/widget-list/widget-view-heading/widget-view-heading.component';
 import { WidgetViewImageComponent } from './components/widget/widget-list/widget-view-image/widget-view-image.component';
 import { WidgetViewYoutubeComponent } from './components/widget/widget-list/widget-view-youtube/widget-view-youtube.component';
+import { SortableDirective } from './directives/sortable/sortable.directive';
 
 @NgModule({
     // Declare components here
@@ -49,7 +50,8 @@ import { WidgetViewYoutubeComponent } from './components/widget/widget-list/widg
         WidgetYoutubeComponent,
         WidgetViewHeadingComponent,
         WidgetViewImageComponent,
-        WidgetViewYoutubeComponent
+        WidgetViewYoutubeComponent,
+        SortableDirective
     ],
     imports: [
         BrowserModule,

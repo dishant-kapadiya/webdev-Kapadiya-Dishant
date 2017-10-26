@@ -45,4 +45,14 @@ export class WidgetService {
                 return res.json();
             });
     }
+
+    sortWidgets(pageId: string, widget: any, initial: number, final: number) {
+        return this._http.put(this.baseUrl + '/api/page/' + pageId + '/widget?initial=' + initial + '&final=' + final, {widget: widget})
+            .map(
+                (res: Response) => {
+                    const data = res.json();
+                    return data;
+                }
+            );
+    }
 }
