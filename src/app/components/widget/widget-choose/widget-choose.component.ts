@@ -27,10 +27,15 @@ export class WidgetChooseComponent implements OnInit {
     }
 
     createWidget(type: string) {
-        console.log(type);
-        const widget = this.serviceHandler.createWidget(this.pageId, {'widgetType': type});
-        console.log(widget);
-        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget', widget['_id']]);
+        this.serviceHandler.createWidget(this.pageId, {'widgetType': type})
+            .subscribe(
+                (data: any) => {
+                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget', data['_id']]);
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
     }
 
 }

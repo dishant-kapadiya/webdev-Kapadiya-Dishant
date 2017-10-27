@@ -25,22 +25,51 @@ export class WebsiteEditComponent implements OnInit {
             this.userId = params['uid'];
             this.websiteId = params['wid'];
         });
-        this.websites = this.serviceHandler.findWebsitesByUser(this.userId);
-        this.website = this.serviceHandler.findWebsiteById(this.websiteId);
-        this.websitename = this.website['name'];
-        this.websitedesc = this.website['description'];
+        this.serviceHandler.findWebsitesByUser(this.userId)
+            .subscribe(
+                (data: any) => {
+                    this.websites = data;
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
+        this.serviceHandler.findWebsiteById(this.websiteId)
+            .subscribe(
+                (data: any) => {
+                    this.website = data;
+                    this.websitename = data['name'];
+                    this.websitedesc = data['description'];
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
     }
 
     updateWebsite() {
         // const website = this.serviceHandler.findWebsiteById(this.websiteId);
         this.website.name = this.websitename;
         this.website.description = this.websitedesc;
-        this.serviceHandler.updateWebsite(this.websiteId, this.website);
-        this.router.navigate(['/user', this.userId, 'website']);
+        this.serviceHandler.updateWebsite(this.websiteId, this.website)
+            .subscribe(
+                (data: any) => {
+                    this.router.navigate(['/user', this.userId, 'website']);
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
     }
 
     deleteWebsite() {
-        this.serviceHandler.deleteWebsite(this.websiteId);
-        this.router.navigate(['/user', this.userId, 'website']);
+        this.serviceHandler.deleteWebsite(this.websiteId).subscribe(
+            (data: any) => {
+                this.router.navigate(['/user', this.userId, 'website']);
+            },
+            (error: any) => {
+                // TODO: handle errors
+            }
+        );
     }
 }
