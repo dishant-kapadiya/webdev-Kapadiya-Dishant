@@ -1,4 +1,4 @@
-module.exports = function (app){
+module.exports = function (app) {
     let widgets = [
         {'_id': '123', 'widgetType': 'HEADING', 'pageId': '321', 'size': 2, 'text': 'GIZMODO'},
         {'_id': '234', 'widgetType': 'HEADING', 'pageId': '321', 'size': 4, 'text': 'Lorem ipsum'},
@@ -15,12 +15,15 @@ module.exports = function (app){
         {'_id': '789', 'widgetType': 'HTML', 'pageId': '321', 'text': '<p>Lorem ipsum</p>'}
     ];
 
+    let multer = require('multer');
+    let upload = multer({dest: __dirname + '/../../public/uploads'});
 
     app.post('/api/page/:pageId/widget', createWidget);
     app.get('/api/page/:pageId/widget', findWidgetsByPageId);
     app.get('/api/widget/:widgetId', findWidgetById);
     app.put('/api/widget/:widgetId', updateWidget);
     app.delete('/api/widget/:widgetId', deleteWidget);
+    app.post("/api/upload", upload.single('myFile'), uploadImage);
 
     function createWidget(req, res) {
         let pageId = req.params.pageId;
@@ -91,5 +94,40 @@ module.exports = function (app){
         res.send({
             "error": "website ID not found"
         });
+    }
+
+    function uploadImage(req, res) {
+
+        let widgetId = req.body.widgetId;
+        let width = req.body.width;
+        let myFile = req.file;
+
+
+        let userId = req.body.userId;
+        let websiteId = req.body.websiteId;
+        let pageId = req.body.pageId;
+
+        let originalname = myFile.originalname; // file name on user's computer
+        let filename = myFile.filename;     // new file name in upload folder
+        let path = myFile.path;         // full path of uploaded file
+        let destination = myFile.destination;  // folder where file is saved to
+        let size = myFile.size;
+        let mimetype = myFile.mimetype;
+
+        widget = getWidgetById(widgetId);
+        widget.url = '/uploads/' + filename;
+        let callbackUrl = "/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
+
+        res.redirect(callbackUrl);
+
+    }
+
+    function getWidgetById(widgetId) {
+        for (let x = 0; x < widgets.length; x++) {
+            if (widgets[x]._id === widgetId) {
+                return widgets[x];
+            }
+        }
+        return null;
     }
 };
