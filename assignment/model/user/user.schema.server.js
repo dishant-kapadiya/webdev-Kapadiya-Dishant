@@ -5,6 +5,6 @@ module.exports = require('mongoose').Schema({
 	lastName: String,
 	email: String,
 	phone: String,
-	// websites: [require('../website/website.schema.server')],
-	dateCreated: Date,
+	websites: [String],
+	dateCreated: {type: Date, default: Date.now()}
 }, {collection: 'user'});

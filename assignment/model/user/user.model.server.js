@@ -8,6 +8,7 @@ userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
+userModel.addWebsite = addWebsite;
 
 module.exports = userModel;
 
@@ -33,4 +34,8 @@ function updateUser(userId, user) {
 
 function deleteUser(userId) {
 	return userModel.remove({_id: userId});
+}
+
+function addWebsite(userId, websiteId) {
+	return userModel.update({_id: userId}, {$push: {websites: websiteId}});
 }

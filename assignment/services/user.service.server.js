@@ -9,13 +9,15 @@ module.exports = function (app) {
 	app.delete('/api/user/:userId', deleteUser);
 
 	function createUser(req, res) {
-
 		userModel.createUser(req.body)
 			.then(function(user){
 				res.send(user);
 			})
 			.catch(function(err){
-				res.send(err)
+				res.status(400);
+				res.send({
+					"error": "error while creating user"
+				})
 			})
 	}
 
