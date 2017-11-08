@@ -99,7 +99,6 @@ module.exports = function (app) {
     function uploadImage(req, res) {
 
         let widgetId = req.body.widgetId;
-        let width = req.body.width;
         let myFile = req.file;
 
 
@@ -107,19 +106,13 @@ module.exports = function (app) {
         let websiteId = req.body.websiteId;
         let pageId = req.body.pageId;
 
-        let originalname = myFile.originalname; // file name on user's computer
         let filename = myFile.filename;     // new file name in upload folder
-        let path = myFile.path;         // full path of uploaded file
-        let destination = myFile.destination;  // folder where file is saved to
-        let size = myFile.size;
-        let mimetype = myFile.mimetype;
 
-        widget = getWidgetById(widgetId);
+        let widget = getWidgetById(widgetId);
         widget.url = '/uploads/' + filename;
         let callbackUrl = "/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
 
         res.redirect(callbackUrl);
-
     }
 
     function getWidgetById(widgetId) {

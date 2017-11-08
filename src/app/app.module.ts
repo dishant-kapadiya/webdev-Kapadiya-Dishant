@@ -27,6 +27,8 @@ import {WidgetService} from './services/widget.service.client';
 import { WidgetViewHeadingComponent } from './components/widget/widget-list/widget-view-heading/widget-view-heading.component';
 import { WidgetViewImageComponent } from './components/widget/widget-list/widget-view-image/widget-view-image.component';
 import { WidgetViewYoutubeComponent } from './components/widget/widget-list/widget-view-youtube/widget-view-youtube.component';
+import { WidgetHtmlComponent } from './components/widget/widget-edit/widget-html/widget-html.component';
+import { WidgetViewHtmlComponent } from './components/widget/widget-list/widget-view-html/widget-view-html.component';
 
 @NgModule({
     // Declare components here
@@ -49,7 +51,9 @@ import { WidgetViewYoutubeComponent } from './components/widget/widget-list/widg
         WidgetYoutubeComponent,
         WidgetViewHeadingComponent,
         WidgetViewImageComponent,
-        WidgetViewYoutubeComponent
+        WidgetViewYoutubeComponent,
+        WidgetHtmlComponent,
+        WidgetViewHtmlComponent
     ],
     imports: [
         BrowserModule,
