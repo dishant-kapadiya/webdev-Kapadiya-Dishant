@@ -30,6 +30,8 @@ import { WidgetViewYoutubeComponent } from './components/widget/widget-list/widg
 import { WidgetHtmlComponent } from './components/widget/widget-edit/widget-html/widget-html.component';
 import { WidgetViewHtmlComponent } from './components/widget/widget-list/widget-view-html/widget-view-html.component';
 import { QuillEditorModule } from 'ngx-quill-editor';
+import { WidgetTextComponent } from './components/widget/widget-edit/widget-text/widget-text.component';
+import { WidgetViewTextComponent } from './components/widget/widget-list/widget-view-text/widget-view-text.component';
 
 @NgModule({
     // Declare components here
@@ -54,7 +56,9 @@ import { QuillEditorModule } from 'ngx-quill-editor';
         WidgetViewImageComponent,
         WidgetViewYoutubeComponent,
         WidgetHtmlComponent,
-        WidgetViewHtmlComponent
+        WidgetViewHtmlComponent,
+        WidgetTextComponent,
+        WidgetViewTextComponent
     ],
     imports: [
         BrowserModule,
