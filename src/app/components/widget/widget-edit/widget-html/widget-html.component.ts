@@ -31,6 +31,23 @@ export class WidgetHtmlComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.activatedRoute.params.subscribe((params: any) => {
+            this.userId = params['uid'];
+            this.websiteId = params['wid'];
+            this.pageId = params['pid'];
+            this.widgetId = params['wgid'];
+        });
+        this.serviceHandler.findWidgetById(this.widgetId)
+            .subscribe(
+                (data: any) => {
+                    this.widget = data;
+                    this.widgetname = this.widget['name'];
+                    this.widgettext = this.widget['text'];
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
     }
 
     updateWidget() {

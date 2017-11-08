@@ -1,3 +1,36 @@
 <p>
-  widget-text works!
+    widget-text works!
 </p>
+
+
+Text
+<input [(ngModel)]="widget.text" class="form-control"/>
+
+Rows
+<input [(ngModel)]="widget.rows" class="form-control" type="number"/>
+<label for="Name">Name</label>
+<div>
+    <input [(ngModel)]="widget.name"
+           type="text"
+           class="form-control"
+           id="Name"
+           name="name"
+           placeholder="Name">
+</div>
+
+Placeholder
+<input [(ngModel)]="widget.placeholder" class="form-control" required/>
+<p></p>
+<div class="input-group">
+    <input type="text"
+           readonly
+           value="Formatted"
+           class="form-control"/>
+    <span class="input-group-addon">
+     <input [(ngModel)]="widget.formatted"
+            type="checkbox"/>
+ </span>
+</div>
+
+
+

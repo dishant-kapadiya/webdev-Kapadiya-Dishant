@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-widget-text',
-  templateUrl: './widget-text.component.html',
-  styleUrls: ['./widget-text.component.css']
+    selector: 'app-widget-text',
+    templateUrl: './widget-text.component.html',
+    styleUrls: ['./widget-text.component.css']
 })
 export class WidgetTextComponent implements OnInit {
 
-  constructor() { }
+    widget: any;
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }
