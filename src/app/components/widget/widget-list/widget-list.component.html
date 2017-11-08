@@ -54,6 +54,20 @@
                     </div>
                 </div>
             </div>
+            <div *ngSwitchCase="'HTML'">
+                <div class="col-xs-12">
+                    <app-widget-view-html [widget]="widget"></app-widget-view-html>
+                    <div class="pull-right dk-widget-toolbar">
+                        <a [routerLink]="[widget['_id']]"
+                           class="custom-widget">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                        <a class="custom-widget drag-handle">
+                            <span class="glyphicon glyphicon-menu-hamburger dk-text-dark dk-text-dark"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

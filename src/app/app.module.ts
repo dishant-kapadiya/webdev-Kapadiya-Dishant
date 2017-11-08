@@ -29,6 +29,7 @@ import { WidgetViewImageComponent } from './components/widget/widget-list/widget
 import { WidgetViewYoutubeComponent } from './components/widget/widget-list/widget-view-youtube/widget-view-youtube.component';
 import { WidgetHtmlComponent } from './components/widget/widget-edit/widget-html/widget-html.component';
 import { WidgetViewHtmlComponent } from './components/widget/widget-list/widget-view-html/widget-view-html.component';
+import { QuillEditorModule } from 'ngx-quill-editor';
 
 @NgModule({
     // Declare components here
@@ -59,7 +60,8 @@ import { WidgetViewHtmlComponent } from './components/widget/widget-list/widget-
         BrowserModule,
         HttpModule,
         FormsModule,
-        Routing
+        Routing,
+        QuillEditorModule
     ],
     // Client Side services here
     providers: [UserService, WebsiteService, PageService, WidgetService],

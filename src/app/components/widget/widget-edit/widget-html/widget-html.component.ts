@@ -1,15 +1,62 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {WidgetService} from '../../../../services/widget.service.client';
 
 @Component({
-  selector: 'app-widget-html',
-  templateUrl: './widget-html.component.html',
-  styleUrls: ['./widget-html.component.css']
+    selector: 'app-widget-html',
+    templateUrl: './widget-html.component.html',
+    styleUrls: ['./widget-html.component.css']
 })
 export class WidgetHtmlComponent implements OnInit {
 
-  constructor() { }
+    widget: any;
+    userId: string;
+    websiteId: string;
+    pageId: string;
+    widgetId: string;
+    widgetname: string;
 
-  ngOnInit() {
-  }
+    public editor;
+    public widgettext = `<i>Insert content here...</i>`;
 
+    constructor(private router: Router, private activatedRoute: ActivatedRoute, private serviceHandler: WidgetService) {
+    }
+
+    onEditorCreated(quill) {
+        this.editor = quill;
+    }
+
+    onContentChanged({quill, html, text}) {
+
+    }
+
+    ngOnInit() {
+    }
+
+    updateWidget() {
+        // const website = this.serviceHandler.findWebsiteById(this.websiteId);
+        this.widget.name = this.widgetname;
+        this.widget.text = this.widgettext;
+        this.serviceHandler.updateWidget(this.widgetId, this.widget)
+            .subscribe(
+                (data: any) => {
+                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
+    }
+
+    deleteWidget() {
+        this.serviceHandler.deleteWidget(this.widgetId)
+            .subscribe(
+                (data: any) => {
+                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
+    }
 }
