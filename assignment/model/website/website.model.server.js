@@ -13,15 +13,15 @@ module.exports = websiteModel;
 
 function createWebsiteForUser(userId, website) {
 	website._user = userId;
-	return new Promise(function (resolve, reject){
+	return new Promise(function (resolve, reject) {
 		websiteModel.create(website)
-			.then(function (result){
+			.then(function (result) {
 				website = result;
 				userModel.addWebsite(userId, website._id)
-					.then(function(result){
+					.then(function (result) {
 						resolve(website);
 					})
-					.catch(function(error){
+					.catch(function (error) {
 						reject(error);
 					})
 			})
@@ -32,7 +32,7 @@ function createWebsiteForUser(userId, website) {
 }
 
 function findWebsitesByUser(userId) {
-	return websiteModel.find({user: userId});
+	return websiteModel.find({_user: userId});
 }
 
 function findWebsiteById(websiteId) {
@@ -40,7 +40,12 @@ function findWebsiteById(websiteId) {
 }
 
 function updateWebsite(websiteId, website) {
-	return websiteModel.update({_id: websiteId}, website);
+	return websiteModel.update({_id: websiteId}, {
+		$set: {
+			name: website.name,
+			description: website.description
+		}
+	});
 }
 
 function deleteWebsite(websiteId) {

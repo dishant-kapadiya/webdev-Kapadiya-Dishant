@@ -29,7 +29,13 @@ function findUserById(userId) {
 }
 
 function updateUser(userId, user) {
-	return userModel.update({_id: userId}, user);
+	return userModel.update({_id: userId}, {
+		$set: {
+			firstName: user.firstName,
+			lastName: user.lastName,
+			email: user.email
+		}
+	});
 }
 
 function deleteUser(userId) {
