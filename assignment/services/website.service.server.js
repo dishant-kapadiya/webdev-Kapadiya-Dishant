@@ -40,6 +40,12 @@ module.exports = function (app) {
 		let websiteId = req.params.websiteId;
 		websiteModel.findWebsiteById(websiteId)
 			.then(function(result){
+				if(result === null){
+					res.status(404).send({
+						"error": "user not found"
+					});
+					return;
+				}
 				res.status(200).send(result)
 			})
 			.catch(function(error){
@@ -55,6 +61,12 @@ module.exports = function (app) {
 		let website = req.body;
 		websiteModel.updateWebsite(websiteId, website)
 			.then(function (result) {
+				if(result.nModified === 0){
+					res.status(404).send({
+						"error": "user not found"
+					});
+					return;
+				}
 				res.status(200).send({
 					"message": "website updated successfully"
 				})
@@ -70,6 +82,12 @@ module.exports = function (app) {
 		let websiteId = req.params.websiteId;
 		websiteModel.deleteWebsite(websiteId)
 			.then(function(result){
+				if(result.result.n === 0){
+					res.status(404).send({
+						"error": "user not found"
+					});
+					return;
+				}
 				res.status(200).send({
 					"message": "website deleted successfully"
 				});

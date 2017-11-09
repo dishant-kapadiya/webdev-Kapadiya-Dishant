@@ -8,6 +8,7 @@ websiteModel.findWebsitesByUser = findWebsitesByUser;
 websiteModel.findWebsiteById = findWebsiteById;
 websiteModel.updateWebsite = updateWebsite;
 websiteModel.deleteWebsite = deleteWebsite;
+websiteModel.addPage = addPage;
 
 module.exports = websiteModel;
 
@@ -50,4 +51,8 @@ function updateWebsite(websiteId, website) {
 
 function deleteWebsite(websiteId) {
 	return websiteModel.remove({_id: websiteId});
+}
+
+function addPage(websiteId, pageId) {
+	return userModel.update({_id: websiteId}, {$push: {pages: pageId}});
 }
