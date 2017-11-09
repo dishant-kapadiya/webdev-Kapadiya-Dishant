@@ -9,19 +9,18 @@ module.exports = function (app) {
 	app.delete('/api/website/:websiteId', deleteWebsite);
 
 	function createWebsite(req, res) {
-		websiteModel.createWebsite(req.body)
+		let userId = req.params.userId;
+		websiteModel.createWebsiteForUser(userId, req.body)
 			.then(function(website){
 				res.status(201);
-				res.send({
-					"message": "hoofad"
-				});
+				res.send(website);
 			})
 			.catch(function(err){
 				res.status(400);
 				res.send({
 					"error": "error while creating website"
 				})
-			})
+			});
 	}
 
 	function findWebsitesByUser(req, res) {

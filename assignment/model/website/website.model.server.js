@@ -3,7 +3,7 @@ let mongoose = require('mongoose');
 let userModel = require('../user/user.model.server');
 let websiteModel = mongoose.model("WebsiteModel", WebsiteSchema);
 
-websiteModel.createWebsite = createWebsite;
+websiteModel.createWebsiteForUser = createWebsiteForUser;
 websiteModel.findWebsitesByUser = findWebsitesByUser;
 websiteModel.findWebsiteById = findWebsiteById;
 websiteModel.updateWebsite = updateWebsite;
@@ -11,21 +11,21 @@ websiteModel.deleteWebsite = deleteWebsite;
 
 module.exports = websiteModel;
 
-function createWebsite(website) {
-	return new Promise(function(resolve, reject) {
+function createWebsiteForUser(userId, website) {
+	website._user = userId;
+	return new Promise(function (resolve, reject){
 		websiteModel.create(website)
-			.then(function(result){
-				console.log(result);
+			.then(function (result){
 				website = result;
-				userModel.addWebsite(website._user, website._id)
-					.then(function(result) {
-						resolve(website)
+				userModel.addWebsite(userId, website._id)
+					.then(function(result){
+						resolve(website);
 					})
-					.error(function(error) {
-						reject(error)
+					.catch(function(error){
+						reject(error);
 					})
 			})
-			.error(function(error){
+			.catch(function (error) {
 				reject(error)
 			})
 	});
