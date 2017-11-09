@@ -11,7 +11,7 @@
 
 <div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding col-xs-12">
     <div *ngFor="let widget of widgets">
-        <div class="widgets" [ngSwitch]="widget['widgetType']">
+        <div class="widgets" [ngSwitch]="widget['type']">
             <div *ngSwitchCase="'HEADING'">
                 <div class="col-xs-12">
                     <app-widget-view-heading [widget]="widget"></app-widget-view-heading>
