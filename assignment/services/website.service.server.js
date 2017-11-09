@@ -61,12 +61,6 @@ module.exports = function (app) {
 		let website = req.body;
 		websiteModel.updateWebsite(websiteId, website)
 			.then(function (result) {
-				if(result.nModified === 0){
-					res.status(404).send({
-						"error": "user not found"
-					});
-					return;
-				}
 				res.status(200).send({
 					"message": "website updated successfully"
 				})

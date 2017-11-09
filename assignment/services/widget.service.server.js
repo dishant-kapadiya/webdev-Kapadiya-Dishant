@@ -69,12 +69,6 @@ module.exports = function (app) {
 		let widget = req.body;
 		widgetModel.updateWidget(widgetId, widget)
 			.then(function (result) {
-				if (result.nModified === 0) {
-					res.status(404).send({
-						"error": "widget ID not found"
-					});
-					return;
-				}
 				res.status(200).send({
 					"message": "widget updated successfully"
 				});

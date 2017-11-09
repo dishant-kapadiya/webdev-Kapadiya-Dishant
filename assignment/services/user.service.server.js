@@ -92,12 +92,6 @@ module.exports = function (app) {
 
 		userModel.updateUser(userId, user)
 			.then(function (result){
-				if(result.nModified === 0){
-					res.status(404).send({
-						"error": "user not found"
-					});
-					return;
-				}
 				res.status(200).send({
 					"message": "user updated successfully"
 				});

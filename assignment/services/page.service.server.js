@@ -67,12 +67,6 @@ module.exports = function (app) {
 		let page = req.body;
 		pageModel.updatePage(pageId, page)
 			.then(function (result) {
-				if (result.nModified === 0) {
-					res.status(404).send({
-						"error": "page not found"
-					});
-					return;
-				}
 				res.status(200).send({
 					"message": "updated successfully"
 				});
