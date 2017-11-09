@@ -1,7 +1,7 @@
 let PageSchema = require('./page.schema.server');
 let mongoose = require('mongoose');
 let websiteModel = require('../website/website.model.server');
-let pageModel = mongoose.model("WebsiteModel", PageSchema);
+let pageModel = mongoose.model("PageModel", PageSchema);
 
 pageModel.createPage = createPage;
 pageModel.findPageByWebsiteId = findPageByWebsiteId;
