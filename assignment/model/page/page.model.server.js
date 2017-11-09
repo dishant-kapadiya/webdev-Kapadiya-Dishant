@@ -8,6 +8,7 @@ pageModel.findPageByWebsiteId = findPageByWebsiteId;
 pageModel.findPageById = findPageById;
 pageModel.updatePage = updatePage;
 pageModel.deletePage = deletePage;
+pageModel.addWidget = addWidget;
 
 module.exports = pageModel;
 
@@ -52,4 +53,8 @@ function updatePage(pageId, page) {
 
 function deletePage(pageId) {
 	return pageModel.remove({_id: pageId})
+}
+
+function addWidget(pageId, widgetId) {
+	return pageModel.update({_id: pageId}, {$push: {widgets: widgetId}});
 }
