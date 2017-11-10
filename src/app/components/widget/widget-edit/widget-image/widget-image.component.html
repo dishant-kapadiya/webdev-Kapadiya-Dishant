@@ -6,33 +6,42 @@
         </a>
         <p class="navbar-brand dk-no-side-padding dk-no-margin"><b>Edit Widget</b></p>
         <a class="bg-secondary pull-right navbar-brand" (click)="updateWidget()">
-            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="glyphicon glyphicon-ok"></span>
         </a>
     </nav>
     <div class="col-xs-12 dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
         <form class="form-group" ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
             <label for="widgetname"> Name </label>
-            <input class="form-control dk-lower-margin" id="widgetname" name="widgetname" [(ngModel)] = "widgetname"
+            <input class="form-control dk-lower-margin" id="widgetname" name="widgetname" [(ngModel)]="widgetname"
                    placeholder="Name"/>
             <label for="widgettext"> Text </label>
-            <input class="form-control dk-lower-margin" id="widgettext" name="widgettext" [(ngModel)] = "widgettext"
+            <input class="form-control dk-lower-margin" id="widgettext" name="widgettext" [(ngModel)]="widgettext"
                    placeholder="Text"/>
             <label for="widgeturl"> URL </label>
-            <input type="url" class="form-control dk-lower-margin" id="widgeturl" name="widgeturl" [(ngModel)] = "widgeturl"
-                   placeholder="http://www.location-to-image.com"/>
+            <div class="input-group top-margin">
+                    <input type="url" class="form-control dk-lower-margin" id="widgeturl" name="widgeturl"
+                           [(ngModel)]="widgeturl"
+                           placeholder="http://www.location-to-image.com"/>
+                    <span class="input-group-btn">
+                        <a class="btn btn-primary btn-block "
+                           [routerLink]="['/user/'+userId+'/website/'+websiteId+'/page/'+pageId+'/widget/'+widgetId+'/flickrSearch']">
+                            Search Flickr</a>
+                    </span>
+            </div>
             <label for="widgetsize"> Width </label>
             <div class="input-group dk-lower-margin">
                 <input class="form-control" type="number" id="widgetsize" name="widgetsize" value=100 placeholder="100"
-                       [(ngModel)] = "widgetwidth" min="0" max="100"/>
+                       [(ngModel)]="widgetwidth" min="0" max="100"/>
                 <span class="input-group-addon">%</span>
             </div>
             <label for="widget-choose-file"> Upload </label>
             <input name="myFile" type="file" class="form-control btn btn-file dk-lower-margin" id="widget-choose-file">
-            <input  name="widgetId" value="{{widgetId}}"   style="display: none"/>
-            <input  name="websiteId" value="{{websiteId}}"   style="display: none"/>
-            <input  name="pageId" value="{{pageId}}"   style="display: none"/>
-            <input  name="userId" value="{{userId}}"   style="display: none"/>
+            <input name="widgetId" value="{{widgetId}}" style="display: none"/>
+            <input name="websiteId" value="{{websiteId}}" style="display: none"/>
+            <input name="pageId" value="{{pageId}}" style="display: none"/>
+            <input name="userId" value="{{userId}}" style="display: none"/>
             <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
+            <p></p>
             <a [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']" (click)="deleteWidget()"
                class="btn btn-danger form-control">Delete</a>
         </form>
