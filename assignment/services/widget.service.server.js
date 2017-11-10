@@ -122,14 +122,18 @@ module.exports = function (app) {
 		let mimetype = myFile.mimetype;
 
 		let widget = getWidgetById(widgetId);
-		widget['_id'] = widgetId;
-		widget['widgetType'] = 'IMAGE';
-		widget['pageId'] = pageId;
-		widget['width'] = width;
 		widget['url'] = '/uploads/' + filename;
-		let callbackUrl = "/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
+		widgetModel.updateWidget(widgetId, widget)
+			.then(function (result) {
+				let callbackUrl = "/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
 
-		res.redirect(callbackUrl);
+				res.redirect(callbackUrl);
+			})
+			.catch(function (error) {
+				let callbackUrl = "/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
+
+				res.redirect(callbackUrl);
+			});
 	}
 
 	function getWidgetById(widgetId) {
