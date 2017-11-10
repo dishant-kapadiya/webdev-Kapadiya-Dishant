@@ -121,12 +121,15 @@ module.exports = function (app) {
 		let size = myFile.size;
 		let mimetype = myFile.mimetype;
 
-		widget = getWidgetById(widgetId);
-		widget.url = '/uploads/' + filename;
+		let widget = getWidgetById(widgetId);
+		widget['_id'] = widgetId;
+		widget['widgetType'] = 'IMAGE';
+		widget['pageId'] = pageId;
+		widget['width'] = width;
+		widget['url'] = '/uploads/' + filename;
 		let callbackUrl = "/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
 
 		res.redirect(callbackUrl);
-
 	}
 
 	function getWidgetById(widgetId) {

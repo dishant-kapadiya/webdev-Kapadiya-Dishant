@@ -20,18 +20,20 @@ import {WidgetListComponent} from './components/widget/widget-list/widget-list.c
 import {WidgetHeaderComponent} from './components/widget/widget-edit/widget-header/widget-header.component';
 import {WidgetImageComponent} from './components/widget/widget-edit/widget-image/widget-image.component';
 import {WidgetYoutubeComponent} from './components/widget/widget-edit/widget-youtube/widget-youtube.component';
+import {WidgetViewHeadingComponent} from './components/widget/widget-list/widget-view-heading/widget-view-heading.component';
+import {WidgetViewImageComponent} from './components/widget/widget-list/widget-view-image/widget-view-image.component';
+import {WidgetViewYoutubeComponent} from './components/widget/widget-list/widget-view-youtube/widget-view-youtube.component';
+import {WidgetHtmlComponent} from './components/widget/widget-edit/widget-html/widget-html.component';
+import {WidgetViewHtmlComponent} from './components/widget/widget-list/widget-view-html/widget-view-html.component';
+import {QuillEditorModule} from 'ngx-quill-editor';
+import {WidgetTextComponent} from './components/widget/widget-edit/widget-text/widget-text.component';
+import {WidgetViewTextComponent} from './components/widget/widget-list/widget-view-text/widget-view-text.component';
+import {FlickrImageSearchComponent} from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
 import {UserService} from './services/user.service.client';
 import {WebsiteService} from './services/website.service.client';
 import {PageService} from './services/page.service.client';
 import {WidgetService} from './services/widget.service.client';
-import { WidgetViewHeadingComponent } from './components/widget/widget-list/widget-view-heading/widget-view-heading.component';
-import { WidgetViewImageComponent } from './components/widget/widget-list/widget-view-image/widget-view-image.component';
-import { WidgetViewYoutubeComponent } from './components/widget/widget-list/widget-view-youtube/widget-view-youtube.component';
-import { WidgetHtmlComponent } from './components/widget/widget-edit/widget-html/widget-html.component';
-import { WidgetViewHtmlComponent } from './components/widget/widget-list/widget-view-html/widget-view-html.component';
-import { QuillEditorModule } from 'ngx-quill-editor';
-import { WidgetTextComponent } from './components/widget/widget-edit/widget-text/widget-text.component';
-import { WidgetViewTextComponent } from './components/widget/widget-list/widget-view-text/widget-view-text.component';
+import {FlickrService} from './services/flickr.service.client';
 
 @NgModule({
     // Declare components here
@@ -58,7 +60,8 @@ import { WidgetViewTextComponent } from './components/widget/widget-list/widget-
         WidgetHtmlComponent,
         WidgetViewHtmlComponent,
         WidgetTextComponent,
-        WidgetViewTextComponent
+        WidgetViewTextComponent,
+        FlickrImageSearchComponent
     ],
     imports: [
         BrowserModule,
@@ -68,7 +71,7 @@ import { WidgetViewTextComponent } from './components/widget/widget-list/widget-
         QuillEditorModule
     ],
     // Client Side services here
-    providers: [UserService, WebsiteService, PageService, WidgetService],
+    providers: [UserService, WebsiteService, PageService, WidgetService, FlickrService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
