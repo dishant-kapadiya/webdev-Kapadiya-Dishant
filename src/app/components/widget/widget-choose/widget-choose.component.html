@@ -1,48 +1,48 @@
 <div class="container-fluid">
-  <nav class="navbar navbar-default navbar-fixed-top bg-secondary">
-    <a class="bg-secondary navbar-brand"
-       [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <b class="navbar-brand dk-no-side-padding dk-no-margin"> Choose Widget </b>
-  </nav>
-  <div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
-    <ul class="list-group row">
-      <li class="list-group-item text-primary dk-borderless">
-        <a (click)="createWidget('HEADING')"> Header </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless">
-        <a href="#"> Label </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless">
-        <a href="#"> HTML </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless">
-        <a href="#"> Input Text </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless">
-        <a href="#"> Link </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless">
-        <a href="#"> Button </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless">
-        <a (click)="createWidget('IMAGE')"> Image </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless">
-        <a (click)="createWidget('YOUTUBE')"> YouTube </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless">
-        <a href="#"> Data Table </a>
-      </li>
-      <li class="list-group-item text-primary dk-borderless">
-        <a href="#"> Repeater </a>
-      </li>
-    </ul>
-  </div>
-  <nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
-    <a [routerLink]="['/user', userId]" class="navbar-brand pull-right">
-      <span class="glyphicon glyphicon-user text-primary"></span>
-    </a>
-  </nav>
+    <nav class="navbar navbar-default navbar-fixed-top bg-secondary">
+        <a class="bg-secondary navbar-brand"
+           [routerLink]="['/user', userId, 'website', websiteId, 'page', pageId, 'widget']">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <b class="navbar-brand dk-no-side-padding dk-no-margin"> Choose Widget </b>
+    </nav>
+    <div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding">
+        <ul class="list-group row">
+            <li class="list-group-item text-primary dk-borderless">
+                <a (click)="createWidget('HEADING')"> Header </a>
+            </li>
+            <li class="list-group-item text-primary dk-borderless">
+                <a href="#"> Label </a>
+            </li>
+            <li class="list-group-item text-primary dk-borderless">
+                <a (click)="createWidget('HTML')"> HTML </a>
+            </li>
+            <li class="list-group-item text-primary dk-borderless">
+                <a (click)="createWidget('INPUT')"> Text </a>
+            </li>
+            <li class="list-group-item text-primary dk-borderless">
+                <a href="#"> Link </a>
+            </li>
+            <li class="list-group-item text-primary dk-borderless">
+                <a href="#"> Button </a>
+            </li>
+            <li class="list-group-item text-primary dk-borderless">
+                <a (click)="createWidget('IMAGE')"> Image </a>
+            </li>
+            <li class="list-group-item text-primary dk-borderless">
+                <a (click)="createWidget('YOUTUBE')"> YouTube </a>
+            </li>
+            <li class="list-group-item text-primary dk-borderless">
+                <a href="#"> Data Table </a>
+            </li>
+            <li class="list-group-item text-primary dk-borderless">
+                <a href="#"> Repeater </a>
+            </li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
+        <a [routerLink]="['/user', userId]" class="navbar-brand pull-right">
+            <span class="glyphicon glyphicon-user text-primary"></span>
+        </a>
+    </nav>
 </div>

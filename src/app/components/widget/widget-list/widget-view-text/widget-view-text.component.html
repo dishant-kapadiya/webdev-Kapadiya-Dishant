@@ -1,0 +1,9 @@
+<div *ngIf="widget['formatted']">
+    <quill-editor [(ngModel)]="widget['text']"></quill-editor>
+</div>
+
+<textarea class="dk-fixed-width form-control" *ngIf="!widget['formatted'] && (widget['rows'] > 1)" rows="{{widget['rows']}}"
+          placeholder="{{widget['placeholder']}}">{{widget['text']}}</textarea>
+
+<input *ngIf="widget['rows']===1 || !widget['formatted'] && (!widget['rows'])" placeholder="{{widget['placeholder']}}"
+       class="form-control"/>

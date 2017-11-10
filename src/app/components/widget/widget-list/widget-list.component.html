@@ -11,9 +11,9 @@
 
 <div class="container-fluid dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding col-xs-12">
     <div *ngFor="let widget of widgets">
-        <div class="widgets" [ngSwitch]="widget['widgetType']">
+        <div class="widgets" [ngSwitch]="widget['type']">
             <div *ngSwitchCase="'HEADING'">
-                <div class="col-xs-12">
+                <div class="col-xs-12 dk-lower-margin">
                     <app-widget-view-heading [widget]="widget"></app-widget-view-heading>
                     <div class="pull-right dk-widget-toolbar">
                         <a [routerLink]="[widget['_id']]"
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div *ngSwitchCase="'IMAGE'">
-                <div class="col-xs-12">
+                <div class="col-xs-12 dk-lower-margin">
                     <app-widget-view-image [widget]="widget"></app-widget-view-image>
                     <div class="pull-right dk-widget-toolbar">
                         <a [routerLink]="[widget['_id']]"
@@ -41,8 +41,36 @@
                 </div>
             </div>
             <div *ngSwitchCase="'YOUTUBE'">
-                <div class="col-xs-12">
+                <div class="col-xs-12 dk-lower-margin">
                     <app-widget-view-youtube [widget]="widget"></app-widget-view-youtube>
+                    <div class="pull-right dk-widget-toolbar">
+                        <a [routerLink]="[widget['_id']]"
+                           class="custom-widget">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                        <a class="custom-widget drag-handle">
+                            <span class="glyphicon glyphicon-menu-hamburger dk-text-dark dk-text-dark"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div *ngSwitchCase="'HTML'">
+                <div class="col-xs-12 dk-lower-margin">
+                    <app-widget-view-html [widget]="widget"></app-widget-view-html>
+                    <div class="pull-right dk-widget-toolbar">
+                        <a [routerLink]="[widget['_id']]"
+                           class="custom-widget">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                        <a class="custom-widget drag-handle">
+                            <span class="glyphicon glyphicon-menu-hamburger dk-text-dark dk-text-dark"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div *ngSwitchCase="'INPUT'">
+                <div class="col-xs-12 dk-lower-margin">
+                    <app-widget-view-text [widget]="widget"></app-widget-view-text>
                     <div class="pull-right dk-widget-toolbar">
                         <a [routerLink]="[widget['_id']]"
                            class="custom-widget">
