@@ -17,4 +17,4 @@ module.exports = mongoose.Schema({
 	formatted: Boolean,
 	position: Number,
 	dateCreated: {type: Date, default: Date.now}
-}, {collection: "Widget"});
+}, {collection: "widget"});

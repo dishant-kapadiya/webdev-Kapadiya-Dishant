@@ -122,7 +122,7 @@ module.exports = function (app) {
 		let mimetype = myFile.mimetype;
 
 		let widget = getWidgetById(widgetId);
-		widget['url'] = '/uploads/' + filename;
+		widget['url'] = './uploads/' + filename;
 		widgetModel.updateWidget(widgetId, widget)
 			.then(function (result) {
 				let callbackUrl = "/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget";
