@@ -1,22 +1,41 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, Response, RequestOptions} from '@angular/http';
 import 'rxjs/Rx';
 import {environment} from '../../environments/environment';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class UserService {
-    constructor(private _http: Http) {
+    constructor(private _http: Http, private router: Router) {
     }
 
     baseUrl = environment.baseUrl;
 
+    options = new RequestOptions();
+
+    // loggedIn() {
+    //     this.options.withCredentials = true;
+    //     return this._http.post(this.baseUrl + '/api/loggedIn', '', this.options)
+    //         .map((res: Response) => {
+    //                 const user = res.json();
+    //                 if (user !== 0) {
+    //                     this.sharedService.user = user; // setting user so as to share with all components
+    //                     return true;
+    //                 } else {
+    //                     this.router.navigate(['/login']);
+    //                     return false;
+    //                 }
+    //             });
+    // }
+
     createUser(user: any) {
-        return this._http.post(this.baseUrl + '/api/user', user)
+        this.options.withCredentials = true;
+
+        return this._http.post(this.baseUrl + '/api/register', user, this.options)
             .map((res: Response) => {
                     const data = res.json();
                     return data;
-                }
-            );
+                });
     }
 
 
@@ -39,7 +58,12 @@ export class UserService {
     }
 
     findUserByCredentials(username: string, password: string) {
-        return this._http.get(this.baseUrl + '/api/user?username=' + username + '&password=' + password)
+        this.options.withCredentials = true;
+        const body = {
+            username: username,
+            password: password
+        };
+        return this._http.post(this.baseUrl + '/api/login', body, this.options)
             .map((res: Response) => {
                     const data = res.json();
                     return data;
@@ -61,5 +85,15 @@ export class UserService {
                 const data = res.json();
                 return data;
             });
+    }
+
+    logout() {
+        this.options.withCredentials = true;
+        return this._http.post(this.baseUrl + '/api/logout', '', this.options)
+            .map(
+                (res: Response) => {
+                    const data = res;
+                }
+            );
     }
 }
