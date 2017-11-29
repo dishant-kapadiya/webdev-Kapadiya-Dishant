@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 (data: any) => {
                     this.errorFlag = false;
-                    this.router.navigate(['/user', data._id]);
+                    this.router.navigate(['profile']);
                 },
                 (error: any) => {
                     this.errorFlag = true;

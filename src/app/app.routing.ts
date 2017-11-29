@@ -17,11 +17,13 @@ import {WidgetChooseComponent} from './components/widget/widget-choose/widget-ch
 import {WidgetEditComponent} from './components/widget/widget-edit/widget-edit.component';
 import {WidgetListComponent} from './components/widget/widget-list/widget-list.component';
 import {FlickrImageSearchComponent} from './components/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
+import {AuthGuard} from './services/auth-guard.service';
 
 
 const APP_ROUTES: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
+    {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
     {path: 'user/:uid', component: ProfileComponent},
     {path: 'user/:uid/website', component: WebsiteListComponent},
     {path: 'user/:uid/website/new', component: WebsiteNewComponent},

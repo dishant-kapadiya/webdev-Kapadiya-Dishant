@@ -45,9 +45,6 @@ app.set('port', port);
 // Create HTTP server
 const server = http.createServer(app);
 
-app.use(passport.initialize());
-app.use(passport.session());
-
 server.listen(port, () => console.log('Running'));
 app.get('/healthCheck', function (req, res) {
 	res.status(200);
@@ -57,7 +54,8 @@ app.get('/healthCheck', function (req, res) {
 });
 require('./assignment/app')(app);
 
-
+app.use(passport.initialize());
+app.use(passport.session());
 // For Build: Catch all other routes and return the index file -- BUILDING
 app.get('*', function (req, res) {
 	res.sendFile(path.join(__dirname, 'dist/index.html'));

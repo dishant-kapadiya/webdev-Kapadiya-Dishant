@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../../services/user.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import {SharedService} from "../../../services/shared.service";
 
 @Component({
     selector: 'app-profile',
@@ -18,14 +19,17 @@ export class ProfileComponent implements OnInit {
     msgFlag: boolean;
     message = '';
 
-    constructor(private serviceHandler: UserService, private router: Router, private activatedRoute: ActivatedRoute) {
+    constructor(private serviceHandler: UserService,
+                private router: Router,
+                private activatedRoute: ActivatedRoute,
+                private sharedService: SharedService) {
     }
 
     ngOnInit() {
         this.activatedRoute.params
             .subscribe(
                 (params: any) => {
-                    this.userId = params['uid'];
+                    this.userId = this.sharedService.user['_id'];
                 }
             );
         this.serviceHandler.findUserById(this.userId)

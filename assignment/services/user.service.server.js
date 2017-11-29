@@ -12,7 +12,7 @@ module.exports = function (app) {
 	app.put('/api/user/:userId', updateUser);
 	app.delete('/api/user/:userId', deleteUser);
 	app.post('/api/register', register);
-	app.get ('/api/loggedin', loggedin);
+	app.post('/api/loggedin', loggedin);
 
 
 	passport.serializeUser(serializeUser);
