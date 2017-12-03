@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top bg-primary">
     <div class="col-xs-12">
         <p class="dk-no-margin navbar-brand"><b>Profile</b></p>
-        <a class="navbar-brand pull-right" [routerLink]="['/user', userId]" (click)="updateProfile()">
+        <a class="navbar-brand pull-right" [routerLink]="['/profile']" (click)="updateProfile()">
             <span class="glyphicon glyphicon-ok bg-primary"></span>
         </a>
     </div>
@@ -23,13 +23,12 @@
                id="last-name" placeholder="Wonderland">
     </form>
     <a class="btn btn-primary btn-block"
-       [routerLink]="['website']">Websites</a>
-    <a class="btn btn-danger btn-block "
-       [routerLink]="['/login']">Logout</a>
+       [routerLink]="['/user', user['_id'], 'website']">Websites</a>
+    <a class="btn btn-danger btn-block " (click)="logout()">Logout</a>
 </div>
 <nav class="navbar navbar-fixed-bottom square bg-primary">
     <div class="container-fluid">
-        <a [routerLink]="['/user', userId]">
+        <a [routerLink]="['/profile']">
             <span class="navbar-brand glyphicon glyphicon-user pull-right bg-primary"></span>
         </a>
     </div>

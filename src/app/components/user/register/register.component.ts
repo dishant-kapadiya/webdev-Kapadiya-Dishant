@@ -22,12 +22,12 @@ export class RegisterComponent implements OnInit {
 
     register() {
         const user = {};
-        user['username'] = this.registerForm.value.username;
-        user['password'] = this.registerForm.value.password;
-        this.serviceHandler.createUser(user)
+        const username = this.registerForm.value.username;
+        const password = this.registerForm.value.password;
+        this.serviceHandler.register(username, password)
             .subscribe(
                 (data: any) => {
-                    this.router.navigate(['user', data['_id']]);
+                    this.router.navigate(['/profile']);
                 },
                 (error: any) => {
                     this.msgFlag = true;
