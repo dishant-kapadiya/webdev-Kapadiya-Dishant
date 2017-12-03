@@ -3,6 +3,7 @@ module.exports = function (app) {
 	let userModel = require('../model/user/user.model.server');
 	let passport = require('passport');
 	let LocalStrategy = require('passport-local').Strategy;
+	let FacebookStrategy = require('passport-facebook').Strategy;
 
 	app.post('/api/user', createUser);
 	app.get('/api/user', findUser);
@@ -13,6 +14,17 @@ module.exports = function (app) {
 	app.post('/api/logout', logout);
 	app.post('/api/register', register);
 	app.post('/api/loggedIn', loggedIn);
+	app.get('/api/facebook/login', passport.authenticate('facebook', {scope: 'email'}));
+	app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+		successRedirect: '/#/profile',
+		failureRedirect: '/#/login'
+	}));
+
+	let facebookConfig = {
+		clientID: process.env.FACEBOOK_CLIENT_ID,
+		clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+		callbackURL: process.env.FACEBOOK_CALLBACK_URL
+	};
 
 	passport.serializeUser((user, done) => {
 			done(null, user);
