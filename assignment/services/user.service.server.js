@@ -16,8 +16,8 @@ module.exports = function (app) {
 	app.post('/api/loggedIn', loggedIn);
 	app.get('/api/facebook/login', passport.authenticate('facebook', {scope: 'email'}));
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-		successRedirect: '/#/profile',
-		failureRedirect: '/#/login'
+		successRedirect: '/profile',
+		failureRedirect: '/login'
 	}));
 
 	let facebookConfig = {
@@ -61,6 +61,45 @@ module.exports = function (app) {
 				.catch(function (err) {
 					return done(err);
 				});
+		}
+	));
+
+	passport.use(new FacebookStrategy(facebookConfig, (token, refreshToken, profile, done) => {
+			userModel.findUserByFacebookId(profile.id)
+				.then(
+					function (user) {
+						if (user) {
+							return done(null, user);
+						} else {
+							let names = profile.displayName.split(" ");
+							let newFacebookUser = {
+								lastName: names[1],
+								firstName: names[0],
+								email: profile.emails ? profile.emails[0].value : "",
+								facebook: {
+									id: profile.id,
+									token: token
+								}
+							};
+							return userModel.createUser(newFacebookUser);
+						}
+					},
+					function (err) {
+						if (err) {
+							return done(err);
+						}
+					}
+				)
+				.then(
+					function (user) {
+						return done(null, user);
+					},
+					function (err) {
+						if (err) {
+							return done(err);
+						}
+					}
+				);
 		}
 	));
 
