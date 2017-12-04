@@ -24,15 +24,20 @@ export class RegisterComponent implements OnInit {
         const user = {};
         const username = this.registerForm.value.username;
         const password = this.registerForm.value.password;
-        this.serviceHandler.register(username, password)
-            .subscribe(
-                (data: any) => {
-                    this.router.navigate(['/profile']);
-                },
-                (error: any) => {
-                    this.msgFlag = true;
-                    this.message = 'Error while creating user';
-                }
-            );
+        if (this.registerForm.value.vpassword === password) {
+            this.serviceHandler.register(username, password)
+                .subscribe(
+                    (data: any) => {
+                        this.router.navigate(['/profile']);
+                    },
+                    (error: any) => {
+                        this.msgFlag = true;
+                        this.message = 'Error while creating user';
+                    }
+                );
+        } else {
+            this.msgFlag = true;
+            this.message = 'Passwords do not match!';
+        }
     }
 }

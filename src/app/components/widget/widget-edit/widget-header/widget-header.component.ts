@@ -16,6 +16,8 @@ export class WidgetHeaderComponent implements OnInit {
     widgetname: string;
     widgettext: string;
     widgetsize: number;
+    errorFlag: boolean;
+    errorMsg: string;
 
     constructor(private router: Router, private activatedRoute: ActivatedRoute, private serviceHandler: WidgetService) {
     }
@@ -47,15 +49,20 @@ export class WidgetHeaderComponent implements OnInit {
         this.widget.name = this.widgetname;
         this.widget.text = this.widgettext;
         this.widget.size = this.widgetsize;
-        this.serviceHandler.updateWidget(this.widgetId, this.widget)
-            .subscribe(
-                (data: any) => {
-                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
-                },
-                (error: any) => {
-                    // TODO: handle errors
-                }
-            );
+        if (this.widget.name) {
+            this.serviceHandler.updateWidget(this.widgetId, this.widget)
+                .subscribe(
+                    (data: any) => {
+                        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+                    },
+                    (error: any) => {
+                        // TODO: handle errors
+                    }
+                );
+        } else {
+            this.errorFlag = true;
+            this.errorMsg = 'Widget name required';
+        }
     }
 
     deleteWidget() {

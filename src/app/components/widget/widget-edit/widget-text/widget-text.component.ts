@@ -17,8 +17,10 @@ export class WidgetTextComponent implements OnInit {
     pageId: string;
     widgetId: string;
     widget = {placeholder: ''};
+    errorMsg: string;
+    errorFlag: boolean;
 
-    constructor(private widgetService: WidgetService, private router: Router, private activatedRoute: ActivatedRoute) {
+    constructor(private serviceHandler: WidgetService, private router: Router, private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -37,7 +39,7 @@ export class WidgetTextComponent implements OnInit {
             });
 
         // fetch widget values as created on widget-new component
-        this.widgetService.findWidgetById(this.widgetId)
+        this.serviceHandler.findWidgetById(this.widgetId)
             .subscribe(
                 (data: any) => this.widget = data,
                 (error: any) => console.log(error)
@@ -45,20 +47,26 @@ export class WidgetTextComponent implements OnInit {
     }
 
     updateWidget() {
-        this.widgetService.updateWidget(this.widgetId, this.widget)
-            .subscribe(
-                (data: any) => {
-                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
-                },
-                (error: any) => {
-                    console.log(error);
-                });
+        if (this.widget['name']) {
+            this.serviceHandler.updateWidget(this.widgetId, this.widget)
+                .subscribe(
+                    (data: any) => {
+                        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+                    },
+                    (error: any) => {
+                        // TODO: handle errors
+                    }
+                );
+        } else {
+            this.errorFlag = true;
+            this.errorMsg = 'Widget name required';
+        }
     }
 
     deleteWidget() {
 
         // call delete widget function from widget client service
-        this.widgetService.deleteWidget(this.widgetId)
+        this.serviceHandler.deleteWidget(this.widgetId)
             .subscribe(
                 (data: any) => {
                     this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);

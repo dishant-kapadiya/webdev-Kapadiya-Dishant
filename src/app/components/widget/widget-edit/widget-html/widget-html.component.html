@@ -10,6 +10,7 @@
         </a>
     </nav>
     <div class="dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding col-xs-12">
+        <div *ngIf="errorFlag" class="alert alert-danger">{{errorMsg}}</div>
         <label for="widgetname"> Name </label>
         <input class="form-control dk-lower-margin" id="widgetname" name="widgetname" placeholder="Name"
                [(ngModel)]="widgetname"/>

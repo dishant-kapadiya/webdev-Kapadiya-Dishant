@@ -3,12 +3,12 @@
     <h1>Login</h1>
     <form (ngSubmit)="login()" #f="ngForm">
         <input type="text" class="form-control dk-lower-margin" placeholder="username" name="username" ngModel required
-               #username="ngModel"/>
+               #username="ngModel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
         <span class="help-block" *ngIf="!username.valid && username.touched">
             Please enter username!
         </span>
         <input type="password" class="form-control dk-lower-margin" placeholder="password" name="password" ngModel
-               required #password="ngModel"/>
+               required #password="ngModel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
         <span class="help-block" *ngIf="!password.valid && password.touched">
             Please enter password!
         </span>

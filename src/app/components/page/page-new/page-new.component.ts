@@ -15,6 +15,8 @@ export class PageNewComponent implements OnInit {
     userId: string;
     websiteId: string;
     pages = [];
+    errorMsg: string;
+    errorFlag: boolean;
 
     constructor(private router: Router, private serviceHandler: PageService, private activatedRoute: ActivatedRoute) {
     }
@@ -40,15 +42,20 @@ export class PageNewComponent implements OnInit {
         const page = {};
         page['name'] = this.pageForm.value.pagename;
         page['description'] = this.pageForm.value.pagedesc;
-        this.serviceHandler.createPage(this.websiteId, page)
-            .subscribe(
-                (data: any) => {
-                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
-                },
-                (error: any) => {
-                    // TODO: handle errors
-                }
-            );
+        if (page['name'] !== '') {
+            this.serviceHandler.createPage(this.websiteId, page)
+                .subscribe(
+                    (data: any) => {
+                        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
+                    },
+                    (error: any) => {
+                        // TODO: handle errors
+                    }
+                );
+        } else {
+            this.errorFlag = true;
+            this.errorMsg = 'Page name required';
+        }
     }
 
 }

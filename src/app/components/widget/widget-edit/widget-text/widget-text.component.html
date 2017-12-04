@@ -10,9 +10,7 @@
         </a>
     </nav>
     <div class="dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding col-xs-12">
-        <div *ngIf=flag class="alert alert-danger">
-            {{error}}
-        </div>
+        <div *ngIf="errorFlag" class="alert alert-danger">{{errorMsg}}</div>
         <label for="widgetname"> Text </label>
         <input id="widgetname" [(ngModel)]="widget['text']" class="form-control"/>
         <label for="rows">Rows</label>
@@ -27,6 +25,7 @@
         <input id="placeholder" [(ngModel)]="widget.placeholder" class="form-control" required/>
         <div class="input-group">
             <input type="text" readonly value="Formatted" class="form-control"/>
+            <p></p>
             <p></p>
             <span class="input-group-addon">
                 <input [(ngModel)]="widget['formatted']" type="checkbox"/>

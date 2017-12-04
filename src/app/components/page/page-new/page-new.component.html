@@ -40,9 +40,11 @@
 
         <div class="col-md-8">
             <form class="form-group" #f="ngForm">
+                <div *ngIf="errorFlag" class="alert alert-danger">{{errorMsg}}</div>
                 <label for="pagename"> Name </label>
                 <input class="form-control dk-lower-margin" name="pagename" id="pagename" ngModel #pagename="ngModel"
-                       placeholder="Page Name">
+                       placeholder="Page Name" required>
+                <span class="help-block" *ngIf="!pagename.valid && pagename.touched">Please enter page name</span>
                 <label for="pagedesc"> Description </label>
                 <input class="form-control dk-lower-margin" name="pagedesc" id="pagedesc" ngModel #pagedesc="ngModel"
                        placeholder="Page Description">

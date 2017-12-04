@@ -34,11 +34,11 @@
             </ul>
         </div>
         <div class="col-md-8">
-            <form class="form-group">
+            <div *ngIf="errorFlag" class="alert alert-danger">{{errorMsg}}</div>
+            <form class="form-group" #f="ngForm">
                 <label for="websitename"> Name </label>
-                <input class="form-control dk-lower-margin" name="websitename" id="websitename"
-                       placeholder="Lorem Ipsum"
-                       [(ngModel)]="websitename">
+                <input class="form-control dk-lower-margin" name="websitename" id="websitename" required
+                       placeholder="Lorem Ipsum" [(ngModel)]="websitename">
                 <label for="websitedesc"> Description </label>
                 <textarea class="form-control dk-fixed-width dk-lower-margin" rows="3" name="websitedesc"
                           id="websitedesc" [(ngModel)]="websitedesc"
