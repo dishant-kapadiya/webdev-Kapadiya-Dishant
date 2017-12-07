@@ -33,10 +33,13 @@
             </ul>
         </div>
         <div class="col-md-8">
+            <div *ngIf="errorFlag" class="alert alert-danger">{{errorMsg}}</div>
             <form class="form-group" #f="ngForm">
                 <label for="websitename"> Name </label>
-                <input class="form-control dk-lower-margin" id="websitename" name="websitename" ngModel
+                <input class="form-control dk-lower-margin" id="websitename" name="websitename" ngModel required
                        #websitename="ngModel"  placeholder="Name of the website">
+                <span class="help-block" *ngIf="!websitename.valid && websitename.touched">Please enter website
+                    name</span>
                 <label for="websitedesc"> Description </label>
                 <textarea class="form-control dk-fixed-width dk-lower-margin" rows="3" name="websitedesc"
                           id="websitedesc" placeholder="Some description about your website" ngModel
@@ -45,7 +48,7 @@
         </div>
     </div>
     <nav class="navbar navbar-fixed-bottom bg-primary">
-        <a [routerLink]="['/user', userId]">
+        <a [routerLink]="['/profile']">
             <span class="navbar-brand pull-right bg-primary glyphicon glyphicon-user"></span>
         </a>
     </nav>

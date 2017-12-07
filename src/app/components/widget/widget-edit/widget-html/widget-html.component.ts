@@ -15,6 +15,8 @@ export class WidgetHtmlComponent implements OnInit {
     pageId: string;
     widgetId: string;
     widgetname: string;
+    errorMsg: string;
+    errorFlag: boolean;
 
     public editor;
     public widgettext = `<i>Insert content here...</i>`;
@@ -54,15 +56,20 @@ export class WidgetHtmlComponent implements OnInit {
         // const website = this.serviceHandler.findWebsiteById(this.websiteId);
         this.widget.name = this.widgetname;
         this.widget.text = this.widgettext;
-        this.serviceHandler.updateWidget(this.widgetId, this.widget)
-            .subscribe(
-                (data: any) => {
-                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
-                },
-                (error: any) => {
-                    // TODO: handle errors
-                }
-            );
+        if (this.widget.name) {
+            this.serviceHandler.updateWidget(this.widgetId, this.widget)
+                .subscribe(
+                    (data: any) => {
+                        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+                    },
+                    (error: any) => {
+                        // TODO: handle errors
+                    }
+                );
+        } else {
+            this.errorFlag = true;
+            this.errorMsg = 'Widget name required';
+        }
     }
 
     deleteWidget() {

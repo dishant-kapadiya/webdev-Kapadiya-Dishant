@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {PageService} from "../../../services/page.service.client";
+import {PageService} from '../../../services/page.service.client';
 
 @Component({
     selector: 'app-page-edit',
@@ -16,6 +16,8 @@ export class PageEditComponent implements OnInit {
     pages = [];
     pagename: string;
     pagedesc: string;
+    errorMsg: string;
+    errorFlag: boolean;
 
     constructor(private router: Router, private activatedRoute: ActivatedRoute, private serviceHandler: PageService) {
     }
@@ -52,15 +54,20 @@ export class PageEditComponent implements OnInit {
     updatePage() {
         this.page.name = this.pagename;
         this.page.description = this.pagedesc;
-        this.serviceHandler.updatePage(this.pageId, this.page)
-            .subscribe(
-                (data: any) => {
-                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
-                },
-                (error: any) => {
-                    // TODO: Handle errors
-                }
-            );
+        if (this.page.name !== '') {
+            this.serviceHandler.updatePage(this.pageId, this.page)
+                .subscribe(
+                    (data: any) => {
+                        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page']);
+                    },
+                    (error: any) => {
+                        // TODO: Handle errors
+                    }
+                );
+        } else {
+            this.errorFlag = true;
+            this.errorMsg = 'Page name required';
+        }
     }
 
     deletePage() {

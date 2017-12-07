@@ -10,6 +10,7 @@
         </a>
     </nav>
     <div class="dk-fixed-top-navbar-padding dk-fixed-bottom-navbar-padding col-xs-12">
+        <div *ngIf="errorFlag" class="alert alert-danger">{{errorMsg}}</div>
         <label for="widgetname"> Name </label>
         <input class="form-control dk-lower-margin" id="widgetname" name="widgetname" placeholder="Name"
                [(ngModel)]="widgetname"/>
@@ -19,7 +20,7 @@
            class="btn btn-danger form-control dk-top-margin">Delete</a>
     </div>
     <nav class="navbar navbar-default bg-secondary navbar-fixed-bottom">
-        <a [routerLink]="['/user', userId]" class="navbar-brand pull-right">
+        <a [routerLink]="['/profile']" class="navbar-brand pull-right">
             <span class="glyphicon glyphicon-user text-primary"></span>
         </a>
     </nav>

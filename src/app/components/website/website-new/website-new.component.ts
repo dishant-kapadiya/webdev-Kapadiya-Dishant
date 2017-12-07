@@ -14,6 +14,8 @@ export class WebsiteNewComponent implements OnInit {
 
     userId: string;
     websites = [];
+    errorMsg: string;
+    errorFlag: boolean;
 
     constructor(private router: Router, private serviceHandler: WebsiteService, private activatedRoute: ActivatedRoute) {
     }
@@ -37,14 +39,18 @@ export class WebsiteNewComponent implements OnInit {
         const website = {};
         website['name'] = this.websiteForm.value.websitename;
         website['description'] = this.websiteForm.value.websitedesc;
-        this.serviceHandler.createWebsiteForUser(this.userId, website).
-            subscribe(
-            (data: any) => {
-                this.router.navigate(['/user', this.userId, 'website']);
-            },
-            (error: any) => {
-                // TODO: handle errors
-            }
-        );
+        if (website['name'] !== '') {
+            this.serviceHandler.createWebsiteForUser(this.userId, website).subscribe(
+                (data: any) => {
+                    this.router.navigate(['/user', this.userId, 'website']);
+                },
+                (error: any) => {
+                    // TODO: handle errors
+                }
+            );
+        } else {
+            this.errorFlag = true;
+            this.errorMsg = 'Website name required';
+        }
     }
 }

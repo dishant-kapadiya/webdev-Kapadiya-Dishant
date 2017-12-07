@@ -3,10 +3,14 @@
     <form #f="ngForm">
         <div *ngIf="msgFlag" class="alert alert-danger">{{message}}</div>
         <input name="username" id="username" placeholder="username" type="text" class="form-control dk-lower-margin"
-               ngModel #username="ngModel"/>
+               required ngModel #username="ngModel"/>
+        <span class="help-block" *ngIf="!username.valid && username.touched">Please enter username</span>
         <input name="password" id="password" placeholder="password" type="password" ngModel #password="ngModel"
-               class="form-control dk-lower-margin"/>
-        <input placeholder="verify password" type="password" class="form-control dk-lower-margin"/>
+               required class="form-control dk-lower-margin"/>
+        <span class="help-block" *ngIf="!password.valid && password.touched">Please enter password</span>
+        <input name="vpassword" id="vpassword" placeholder="verify password" type="password" ngModel
+               required #vpassword="ngModel" class="form-control dk-lower-margin"/>
+        <span class="help-block" *ngIf="!vpassword.valid && vpassword.touched">Please re-enter password</span>
         <a class="btn btn-primary btn-block" (click)="register()">Register</a>
         <a class="btn btn-danger btn-block" [routerLink]="['/login']">Cancel</a>
     </form>

@@ -22,17 +22,22 @@ export class RegisterComponent implements OnInit {
 
     register() {
         const user = {};
-        user['username'] = this.registerForm.value.username;
-        user['password'] = this.registerForm.value.password;
-        this.serviceHandler.createUser(user)
-            .subscribe(
-                (data: any) => {
-                    this.router.navigate(['user', data['_id']]);
-                },
-                (error: any) => {
-                    this.msgFlag = true;
-                    this.message = 'Error while creating user';
-                }
-            );
+        const username = this.registerForm.value.username;
+        const password = this.registerForm.value.password;
+        if (this.registerForm.value.vpassword === password) {
+            this.serviceHandler.register(username, password)
+                .subscribe(
+                    (data: any) => {
+                        this.router.navigate(['/profile']);
+                    },
+                    (error: any) => {
+                        this.msgFlag = true;
+                        this.message = 'Error while creating user';
+                    }
+                );
+        } else {
+            this.msgFlag = true;
+            this.message = 'Passwords do not match!';
+        }
     }
 }
