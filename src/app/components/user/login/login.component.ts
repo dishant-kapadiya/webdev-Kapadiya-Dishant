@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service.client';
 import {Router} from '@angular/router';
+import {SharedService} from "../../../services/shared.service";
 
 @Component({
     selector: 'app-login',
@@ -15,9 +16,9 @@ export class LoginComponent implements OnInit {
     username: string;
     password: string;
     errorFlag: boolean;
-    errorMsg = 'Invalid username or password';
+    errorMsg = '';
 
-    constructor(private router: Router, private serviceHandler: UserService) {
+    constructor(private router: Router, private serviceHandler: UserService, private sharedService: SharedService) {
     }
 
     ngOnInit() {
@@ -26,15 +27,23 @@ export class LoginComponent implements OnInit {
     login() {
         this.username = this.loginForm.value.username;
         this.password = this.loginForm.value.password;
-        this.serviceHandler.findUserByCredentials(this.username, this.password)
-            .subscribe(
-                (data: any) => {
-                    this.errorFlag = false;
-                    this.router.navigate(['/user', data._id]);
-                },
-                (error: any) => {
-                    this.errorFlag = true;
-                }
-            );
+        if (this.username !== '' && this.password !== '') {
+            this.serviceHandler.login(this.username, this.password)
+                .subscribe(
+                    (data: any) => {
+                        this.errorFlag = false;
+                        this.router.navigate(['/user', data._id]);
+                        this.sharedService.user = data;
+                        this.router.navigate(['/profile']);
+                    },
+                    (error: any) => {
+                        this.errorFlag = true;
+                        this.errorMsg = 'Invalid username or password';
+                    }
+                );
+        } else {
+            this.errorFlag = true;
+            this.errorMsg = 'Username and Password required';
+        }
     }
 }

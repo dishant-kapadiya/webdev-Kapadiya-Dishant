@@ -10,10 +10,13 @@ module.exports = function (app) {
 	app.put('/api/widget/:widgetId', updateWidget);
 	app.delete('/api/widget/:widgetId', deleteWidget);
 	app.post("/api/upload", upload.single('myFile'), uploadImage);
+	app.put("/api/page/:pageId/widget", reorderWidgets);
+
 
 	function createWidget(req, res) {
 		let pageId = req.params.pageId;
 		let widget = req.body;
+
 		widgetModel.createWidget(pageId, widget)
 			.then(function (result) {
 				res.status(201).send(result);
@@ -146,6 +149,18 @@ module.exports = function (app) {
 			})
 			.catch(function (error) {
 				return null
+			});
+	}
+
+	function reorderWidgets(req, res) {
+		let pageId = req.params.pageId;
+		let startIndex = parseInt(req.query.start);
+		let endIndex = parseInt(req.query.end);
+		widgetModel.reorderWidget(pageId, startIndex, endIndex)
+			.then(function (response) {
+				res.send(200);
+			}, function (err) {
+				res.sendStatus(400).send(err);
 			});
 	}
 };

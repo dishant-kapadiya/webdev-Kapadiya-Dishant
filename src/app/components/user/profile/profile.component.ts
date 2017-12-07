@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../../services/user.service.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import {SharedService} from "../../../services/shared.service";
 
 @Component({
     selector: 'app-profile',
@@ -18,27 +19,11 @@ export class ProfileComponent implements OnInit {
     msgFlag: boolean;
     message = '';
 
-    constructor(private serviceHandler: UserService, private activatedRoute: ActivatedRoute) {
+    constructor(private serviceHandler: UserService, private sharedService: SharedService, private router: Router) {
     }
 
     ngOnInit() {
-        this.activatedRoute.params
-            .subscribe(
-                (params: any) => {
-                    this.userId = params['uid'];
-                }
-            );
-        this.serviceHandler.findUserById(this.userId)
-            .subscribe(
-                (data: any) => {
-                    this.user = data;
-                },
-                (error: any) => {
-                    console.log(error);
-                    this.msgFlag = true;
-                    this.message = 'User not found';
-                }
-            );
+        this.user = this.sharedService.user;
     }
 
     updateProfile() {
@@ -55,6 +40,13 @@ export class ProfileComponent implements OnInit {
                     this.msgFlag = true;
                     this.message = 'Failure while updating user';
                 }
+            );
+    }
+
+    logout() {
+        this.serviceHandler.logout()
+            .subscribe(
+                (data: any) => this.router.navigate(['/login'])
             );
     }
 }

@@ -17,6 +17,8 @@ export class WidgetYoutubeComponent implements OnInit {
     widgetname: string;
     widgettext: string;
     widgetwidth: number;
+    errorMsg: string;
+    errorFlag: boolean;
 
     constructor(private router: Router, private activatedRoute: ActivatedRoute, private serviceHandler: WidgetService) {
     }
@@ -32,10 +34,18 @@ export class WidgetYoutubeComponent implements OnInit {
             .subscribe(
                 (data: any) => {
                     this.widget = data;
-                    this.widgetname = this.widget['name'];
-                    this.widgettext = this.widget['text'];
-                    this.widgeturl = this.widget['url'];
-                    this.widgetwidth = Number(this.widget['width'].slice(0, -1));
+                    if (this.widget.hasOwnProperty('name')) {
+                        this.widgetname = this.widget['name'];
+                    }
+                    if (this.widget.hasOwnProperty('text')) {
+                        this.widgettext = this.widget['text'];
+                    }
+                    if (this.widget.hasOwnProperty('url')) {
+                        this.widgeturl = this.widget['url'];
+                    }
+                    if (this.widget.hasOwnProperty('width')) {
+                        this.widgetwidth = Number(this.widget['width'].slice(0, -1));
+                    }
                 },
                 (error: any) => {
                     // TODO: handle errors
@@ -48,15 +58,20 @@ export class WidgetYoutubeComponent implements OnInit {
         this.widget.text = this.widgettext;
         this.widget.width = this.widgetwidth + '%';
         this.widget.url = this.widgeturl;
-        this.serviceHandler.updateWidget(this.widgetId, this.widget)
-            .subscribe(
-                (data: any) => {
-                    this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
-                },
-                (error: any) => {
-                    // TODO: handle errors
-                }
-            );
+        if (this.widget.name) {
+            this.serviceHandler.updateWidget(this.widgetId, this.widget)
+                .subscribe(
+                    (data: any) => {
+                        this.router.navigate(['/user', this.userId, 'website', this.websiteId, 'page', this.pageId, 'widget']);
+                    },
+                    (error: any) => {
+                        // TODO: handle errors
+                    }
+                );
+        } else {
+            this.errorFlag = true;
+            this.errorMsg = 'Widget name required';
+        }
     }
 
     deleteWidget() {
