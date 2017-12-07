@@ -30,6 +30,14 @@ project I've used Bootstrap v3 for styling and Angular 4 for components. You can
 This assignment consists of building the services using NodeJS and Express in backend. The functionality still 
 remains the same but now points to actual backend. 
 
+* ### [Assignment 5](https://github.com/dishantkapadiya2694/webdev-Kapadiya-Dishant/tree/assignment5)
+This assignment consists of building the data models in MongoDB and integrating the front-end using mongoose library.
+ In heroku, mLab is integrated as data store in backend. 
+
+* ### [Assignment 6](https://github.com/dishantkapadiya2694/webdev-Kapadiya-Dishant/tree/assignment6)
+This assignment consists of securing the data and api(s) using PassportJS. Also password encryption is enabled to 
+store password in a secure way. Website can accept users using Facebook as well.
+
 ## Project:
 #### Checkout wiki for project idea.
 ##### POC coming soon😎
