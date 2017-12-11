@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
 });
 
 
-const port = process.env.PORT || '3100';
+const port = process.env.PORT || '3200';
 app.set('port', port);
 
 
@@ -54,6 +54,7 @@ app.get('/healthCheck', function (req, res) {
 	});
 });
 require('./assignment/app')(app);
+require('server/test-mongodb/app')(app);
 
 
 // For Build: Catch all other routes and return the index file -- BUILDING
