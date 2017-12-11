@@ -54,7 +54,6 @@ app.get('/healthCheck', function (req, res) {
 	});
 });
 require('./assignment/app')(app);
-require('server/test-mongodb/app')(app);
 
 
 // For Build: Catch all other routes and return the index file -- BUILDING
